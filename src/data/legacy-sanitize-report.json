@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-09-03T19:41:44.727Z",
+  "timestamp": "2025-09-03T19:54:02.860Z",
   "legacyPath": "D:\\APPS\\reag-app\\src\\data\\completeData.legacy.txt",
-  "backupPath": null,
+  "backupPath": "D:\\APPS\\reag-app\\src\\data\\backups\\completeData.legacy.2025-09-03T19-54-02-838Z.txt",
   "removedCount": 0,
   "checksBefore": {
     "motivosReagendamento": true,
@@ -17,6 +17,6 @@
     "pecas": true,
     "reagendamentos": true
   },
-  "wroteSanitized": false,
-  "ciMode": true
+  "wroteSanitized": true,
+  "ciMode": false
 }
