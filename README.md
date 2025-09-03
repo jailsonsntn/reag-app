@@ -1,8 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sistema de Reagendamentos - Assistência Técnica
 
-## Getting Started
+Web application para gerenciar reagendamentos de uma assistência técnica com dashboard de monitoramento em tempo real.
 
-First, run the development server:
+## 📋 Funcionalidades
+
+- **Dashboard Principal**: Visualização em tempo real dos reagendamentos similares a planilha Excel
+- **Gestão de OS**: Controle completo das Ordens de Serviço
+- **Cadastro de Produtos**: Gestão de SKUs e produtos
+- **Controle de Técnicos**: Atribuição e acompanhamento de técnicos
+- **Sistema de Reagendamento**: Controle de datas e motivos
+- **Classificação de Peças**: Funcional ou Estética
+- **Filtros Avançados**: Busca por múltiplos critérios
+- **Relatórios**: Estatísticas e métricas em tempo real
+
+## 🚀 Tecnologias
+
+- **Next.js 15**: Framework React com App Router
+- **TypeScript**: Tipagem estática
+- **Tailwind CSS**: Estilização utilitária
+- **Lucide React**: Ícones modernos
+- **Radix UI**: Componentes acessíveis
+- **TanStack Table**: Tabelas avançadas
+- **Date-fns**: Manipulação de datas
+
+## 📦 Instalação
+
+Execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev

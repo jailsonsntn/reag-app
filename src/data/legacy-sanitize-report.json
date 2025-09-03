@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-09-03T19:41:44.727Z",
+  "legacyPath": "D:\\APPS\\reag-app\\src\\data\\completeData.legacy.txt",
+  "backupPath": null,
+  "removedCount": 0,
+  "checksBefore": {
+    "motivosReagendamento": true,
+    "tecnicos": true,
+    "produtos": true,
+    "pecas": true,
+    "reagendamentos": true
+  },
+  "checksAfter": {
+    "motivosReagendamento": true,
+    "tecnicos": true,
+    "produtos": true,
+    "pecas": true,
+    "reagendamentos": true
+  },
+  "wroteSanitized": false,
+  "ciMode": true
+}

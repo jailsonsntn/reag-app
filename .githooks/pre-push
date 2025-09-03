@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+// Pre-push hook: roda sanitização antes de permitir o push
+require('../scripts/preCommitHook.js');
