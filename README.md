@@ -58,6 +58,25 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## 🏷️ Release v0.2.0
+
+Melhorias principais desta versão:
+
+- Layout moderno no Dashboard e na página de Análise (header com blur, sombras suaves, cantos arredondados)
+- Filtros alinhados em grid responsiva e botão de limpar com ícone (tooltip no hover)
+- Modal de criação e modais da análise com fundo translúcido e bordas sutis
+- Tema global refinado (gradientes suaves e melhor contraste)
+- Build estável sem Turbopack (tolerante a unidades de rede)
+- Seed deduplicado em memória (sem `skipDuplicates`)
+
+Como atualizar localmente:
+
+1. Atualize dependências se necessário: `npm install`
+2. Gere e sincronize o Prisma: `npx prisma generate && npx prisma db push`
+3. Build e start: `npm run build && npm start`
+
+Screenshots e notas adicionais podem ser adicionados na próxima release.
+
 ## Execução com duplo clique (Windows)
 
 Para rodar como um “executável” dentro de uma pasta de servidor Windows:
