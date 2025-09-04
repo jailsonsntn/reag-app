@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Reagendamento {
+  id                String  @id @default(cuid())
+  os                String
+  sku               String
+  produto           String
+  tecnico           String
+  data              String
+  teveReagendamento Boolean
+  motivo            String
+  codigoPeca        String?
+  tipo              String
+  nomePeca          String?
+  createdAt         DateTime @default(now())
+
+  @@unique([os, sku, data, motivo])
+}

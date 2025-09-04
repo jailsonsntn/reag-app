@@ -57,3 +57,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Execução com duplo clique (Windows)
+
+Para rodar como um “executável” dentro de uma pasta de servidor Windows:
+
+1. Copie a pasta inteira `reag-app` para o servidor (ex.: `C:\Apps\reag-app`).
+2. Dê duplo clique em `StartServidor.cmd`.
+	 - O script vai:
+		 - Configurar `DATABASE_URL=file:./data/reag.db` (banco local dentro da pasta).
+		 - Criar a pasta `data/` se não existir.
+		 - Instalar dependências (na primeira execução).
+		 - Gerar o Prisma Client e sincronizar o banco (`db push`).
+		 - Fazer o build e iniciar o servidor (`npm run start`).
+	 - O navegador abrirá em `http://localhost:3000`.
+
+Para parar, feche a janela do terminal “Reag App”. Para mudar porta, use a variável `PORT` antes do start.

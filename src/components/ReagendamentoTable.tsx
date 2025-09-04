@@ -56,20 +56,20 @@ export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
 
   const SortableHeader = ({ children, sortKey: key }: { children: React.ReactNode; sortKey: SortKey }) => (
     <th
-      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
+      className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider cursor-pointer hover:bg-gray-50/60"
       onClick={() => handleSort(key)}
     >
-      <div className="flex items-center space-x-1">
+      <div className="flex items-center gap-1">
         <span>{children}</span>
-        <ArrowUpDown className="h-4 w-4" />
+        <ArrowUpDown className="h-4 w-4 text-gray-400" />
       </div>
     </th>
   );
 
   return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-      <div className="px-4 py-5 sm:px-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">
+    <div className="bg-white/90 backdrop-blur rounded-2xl border border-gray-200/60 shadow-sm overflow-hidden">
+      <div className="px-5 py-4">
+        <h3 className="text-lg leading-6 font-semibold text-gray-900">
           Reagendamentos ({data.length})
         </h3>
         <p className="mt-1 max-w-2xl text-sm text-gray-500">
@@ -79,7 +79,7 @@ export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
       
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-50/80">
             <tr>
               <SortableHeader sortKey="os">OS</SortableHeader>
               <SortableHeader sortKey="sku">SKU</SortableHeader>
@@ -90,14 +90,14 @@ export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
               <SortableHeader sortKey="codigoPeca">Código Peça</SortableHeader>
               <SortableHeader sortKey="tipo">Tipo</SortableHeader>
               <SortableHeader sortKey="nomePeca">Nome da Peça</SortableHeader>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                 Ações
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-white divide-y divide-gray-100">
             {sortedData.map((item) => (
-              <tr key={item.id} className="hover:bg-gray-50">
+              <tr key={item.id} className="hover:bg-gray-50/80">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                   {item.os}
                 </td>
@@ -115,7 +115,7 @@ export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
                 </td>
                 {/* removed display of teveReagendamento as requested */}
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getMotivoColor(item.motivo)}`}>
+                  <span className={`inline-flex px-2.5 py-1 text-xs font-semibold rounded-full ${getMotivoColor(item.motivo)}`}>
                     {item.motivo}
                   </span>
                 </td>
@@ -123,7 +123,7 @@ export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
                   {item.codigoPeca || '-'}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getTipoColor(item.tipo)}`}>
+                  <span className={`inline-flex px-2.5 py-1 text-xs font-semibold rounded-full ${getTipoColor(item.tipo)}`}>
                     {item.tipo}
                   </span>
                 </td>
@@ -132,13 +132,13 @@ export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <div className="flex items-center space-x-2">
-                    <button className="text-indigo-600 hover:text-indigo-900">
+                    <button className="text-indigo-600 hover:text-indigo-700">
                       <Eye className="h-4 w-4" />
                     </button>
-                    <button className="text-green-600 hover:text-green-900">
+                    <button className="text-green-600 hover:text-green-700">
                       <Edit className="h-4 w-4" />
                     </button>
-                    <button className="text-red-600 hover:text-red-900">
+                    <button className="text-red-600 hover:text-red-700">
                       <Trash2 className="h-4 w-4" />
                     </button>
                   </div>

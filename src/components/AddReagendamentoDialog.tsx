@@ -36,11 +36,10 @@ export default function AddReagendamentoDialog({
     nomePeca: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const novo: Reagendamento = {
-      id: Date.now().toString(),
+    const payload = {
       os: formData.os,
       sku: formData.sku,
       produto: formData.produto,
@@ -51,9 +50,19 @@ export default function AddReagendamentoDialog({
       codigoPeca: formData.codigoPeca,
       tipo: formData.tipo,
       nomePeca: formData.nomePeca,
-    };
+    } as Omit<Reagendamento, 'id'>;
 
-    onAdd(novo);
+    const res = await fetch('/api/reagendamentos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      console.error('Falha ao salvar');
+      return;
+    }
+    const saved = await res.json();
+    onAdd(saved as Reagendamento);
     onClose();
   };
 
@@ -68,9 +77,9 @@ export default function AddReagendamentoDialog({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between p-6 border-b">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+      <div className="bg-white/95 backdrop-blur rounded-2xl border border-gray-200/60 shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
+        <div className="flex items-center justify-between p-6 border-b border-gray-200/60">
           <h2 className="text-xl font-semibold text-gray-900">Novo Reagendamento</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
             <X className="h-6 w-6" />
@@ -87,7 +96,7 @@ export default function AddReagendamentoDialog({
                 value={formData.os}
                 onChange={handleInputChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
                 placeholder="Ex: 701424523"
               />
             </div>
@@ -99,7 +108,7 @@ export default function AddReagendamentoDialog({
                 value={formData.sku}
                 onChange={handleInputChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
               >
                 <option value="">Selecione um SKU</option>
                 {produtos.map((produto) => (
@@ -117,7 +126,7 @@ export default function AddReagendamentoDialog({
                 name="produto"
                 value={formData.produto}
                 onChange={handleInputChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
                 placeholder="Nome do produto"
               />
             </div>
@@ -129,7 +138,7 @@ export default function AddReagendamentoDialog({
                 value={formData.tecnico}
                 onChange={handleInputChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
               >
                 <option value="">Selecione um técnico</option>
                 {tecnicos.map((tecnico) => (
@@ -148,7 +157,7 @@ export default function AddReagendamentoDialog({
                 value={formData.data}
                 onChange={handleInputChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
               />
             </div>
 
@@ -159,7 +168,7 @@ export default function AddReagendamentoDialog({
                 value={formData.motivo}
                 onChange={handleInputChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
               >
                 <option value="">Selecione um motivo</option>
                 {motivosReagendamento.map((motivo) => (
@@ -177,7 +186,7 @@ export default function AddReagendamentoDialog({
                 name="codigoPeca"
                 value={formData.codigoPeca}
                 onChange={handleInputChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
                 placeholder="Ex: W10798744"
               />
             </div>
@@ -189,7 +198,7 @@ export default function AddReagendamentoDialog({
                 value={formData.tipo}
                 onChange={handleInputChange}
                 required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
               >
                 <option value="FUNCIONAL">Funcional</option>
                 <option value="ESTETICA">Estética</option>
@@ -203,23 +212,23 @@ export default function AddReagendamentoDialog({
                 name="nomePeca"
                 value={formData.nomePeca}
                 onChange={handleInputChange}
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
                 placeholder="Ex: Compressor"
               />
             </div>
           </div>
 
-          <div className="flex items-center justify-end space-x-4 mt-6 pt-6 border-t">
+          <div className="flex items-center justify-end gap-3 mt-6 pt-6 border-t border-gray-200/60">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+              className="px-4 h-10 border border-gray-200 rounded-xl text-gray-700 bg-white hover:bg-gray-50 shadow-sm"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+              className="px-4 h-10 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl hover:from-blue-600/90 hover:to-indigo-600/90 shadow-sm"
             >
               Salvar Reagendamento
             </button>

@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
+/* Tema base com variáveis e suporte a dark mode */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc; /* slate-50 */
+  --foreground: #0f172a; /* slate-900 */
+  --card: #ffffff;
+  --muted: #64748b; /* slate-500 */
 }
 
 @theme inline {
@@ -14,13 +17,46 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b0f1a; /* neutral-950-ish */
+    --foreground: #e5e7eb; /* gray-200 */
+    --card: rgba(17, 24, 39, 0.7);
+    --muted: #9ca3af; /* gray-400 */
   }
 }
 
+/* Reset e base tipográfica moderna */
+html, body {
+  height: 100%;
+}
+
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(1000px 600px at 10% -10%, rgba(59,130,246,0.12), transparent 60%),
+              radial-gradient(900px 500px at 90% 10%, rgba(168,85,247,0.10), transparent 60%),
+              linear-gradient(to bottom, #f8fafc, #eef2f7);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar mais discreto */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(100,116,139,0.5) transparent;
+}
+
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(100,116,139,0.6), rgba(148,163,184,0.6));
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Transições suaves por padrão */
+* {
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
 }

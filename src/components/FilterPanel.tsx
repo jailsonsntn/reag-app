@@ -31,12 +31,12 @@ export default function FilterPanel({
   onClear
 }: FilterPanelProps) {
   return (
-    <div className="bg-white rounded-lg shadow p-6 mb-6">
+    <div className="rounded-2xl p-6 mb-6 border border-gray-200/60 bg-white/80 backdrop-blur shadow-sm">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-medium text-gray-900">Filtros</h3>
         <button
           onClick={onClear}
-          className="flex items-center space-x-1 text-sm text-gray-500 hover:text-gray-700"
+          className="inline-flex items-center gap-1 text-sm text-gray-600 hover:text-gray-800"
         >
           <X className="h-4 w-4" />
           <span>Limpar filtros</span>
@@ -51,7 +51,7 @@ export default function FilterPanel({
           <select
             value={selectedTecnico}
             onChange={(e) => setSelectedTecnico(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
           >
             <option value="">Todos os técnicos</option>
             {tecnicos.map((tecnico) => (
@@ -69,7 +69,7 @@ export default function FilterPanel({
           <select
             value={selectedMotivo}
             onChange={(e) => setSelectedMotivo(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
           >
             <option value="">Todos os motivos</option>
             {motivosReagendamento.map((motivo) => (
@@ -87,7 +87,7 @@ export default function FilterPanel({
           <select
             value={selectedTipo}
             onChange={(e) => setSelectedTipo(e.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
           >
             <option value="">Todos os tipos</option>
             <option value="FUNCIONAL">Funcional</option>
@@ -103,7 +103,7 @@ export default function FilterPanel({
             type="date"
             value={dateRange.start}
             onChange={(e) => setDateRange({ ...dateRange, start: e.target.value })}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
           />
         </div>
 
@@ -115,7 +115,7 @@ export default function FilterPanel({
             type="date"
             value={dateRange.end}
             onChange={(e) => setDateRange({ ...dateRange, end: e.target.value })}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="w-full border border-gray-200 rounded-xl px-3 py-2 bg-white/70 shadow-sm focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60"
           />
         </div>
       </div>
