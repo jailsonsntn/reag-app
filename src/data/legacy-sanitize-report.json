@@ -1,7 +1,7 @@
 {
-  "timestamp": "2025-09-04T19:09:33.320Z",
-  "legacyPath": "\\\\srv-servicente\\D\\Usuarios\\Jailson\\App\\reag-app\\src\\data\\completeData.legacy.txt",
-  "backupPath": "\\\\srv-servicente\\D\\Usuarios\\Jailson\\App\\reag-app\\src\\data\\backups\\completeData.legacy.2025-09-04T19-09-33-298Z.txt",
+  "timestamp": "2025-09-05T14:39:35.795Z",
+  "legacyPath": "Z:\\Usuarios\\Jailson\\App\\reag-app\\src\\data\\completeData.legacy.txt",
+  "backupPath": "Z:\\Usuarios\\Jailson\\App\\reag-app\\src\\data\\backups\\completeData.legacy.2025-09-05T14-39-35-740Z.txt",
   "removedCount": 0,
   "checksBefore": {
     "motivosReagendamento": true,
