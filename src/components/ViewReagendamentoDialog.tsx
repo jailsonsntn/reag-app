@@ -1,59 +1,50 @@
 "use client";
-
-import { X } from 'lucide-react';
+import * as Dialog from '@radix-ui/react-dialog';
 import { Reagendamento } from '@/types/reagendamento';
 
 interface ViewReagendamentoDialogProps {
   isOpen: boolean;
-  item: Reagendamento | null;
   onClose: () => void;
+  item: Reagendamento | null;
 }
 
-export default function ViewReagendamentoDialog({ isOpen, item, onClose }: ViewReagendamentoDialogProps) {
-  if (!isOpen || !item) return null;
+export default function ViewReagendamentoDialog({ isOpen, onClose, item }: ViewReagendamentoDialogProps) {
+  if (!item) return null;
 
-  const Row = ({ label, value }: { label: string; value: React.ReactNode }) => (
-    <div className="flex flex-col gap-1">
-      <span className="text-xs font-medium text-gray-500">{label}</span>
-      <span className="text-sm text-gray-900">{value ?? '—'}</span>
-    </div>
-  );
+  const rows: Array<[string, string]> = [
+    ['Data', item.data],
+    ['OS', String(item.os)],
+    ['SKU', String(item.sku)],
+    ['Produto', item.produto || '—'],
+    ['Técnico', item.tecnico || '—'],
+    ['Motivo', item.motivo || '—'],
+    ['Tipo', item.tipo || '—'],
+    ['Nome da Peça', item.nomePeca || '—'],
+    ['Código da Peça', item.codigoPeca ? String(item.codigoPeca) : '—'],
+    ['Teve Reagendamento', item.teveReagendamento ? 'Sim' : 'Não'],
+  ];
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div className="bg-white/95 text-gray-900 backdrop-blur rounded-2xl border border-gray-200/60 shadow-xl w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between p-6 border-b border-gray-200/60">
-          <h2 className="text-xl font-semibold">Detalhes do Reagendamento</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600" aria-label="Fechar">
-            <X className="h-6 w-6" />
-          </button>
-        </div>
-
-        <div className="p-6 space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Row label="OS" value={String(item.os)} />
-            <Row label="SKU" value={String(item.sku)} />
-            <Row label="Produto" value={item.produto} />
-            <Row label="Técnico" value={item.tecnico} />
-            <Row label="Data" value={item.data} />
-            <Row label="Motivo" value={item.motivo} />
-            <Row label="Tipo" value={item.tipo} />
-            <Row label="Código da Peça" value={item.codigoPeca ? String(item.codigoPeca) : '—'} />
-            <Row label="Nome da Peça" value={item.nomePeca || '—'} />
-            <Row label="Teve Reagendamento" value={item.teveReagendamento ? 'Sim' : 'Não'} />
+    <Dialog.Root open={isOpen} onOpenChange={(o) => !o && onClose()}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 bg-black/40" />
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur rounded-2xl shadow-xl border border-gray-200/60 w-[95vw] max-w-2xl max-h-[85vh] overflow-hidden">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200/60">
+            <Dialog.Title className="text-lg font-semibold text-gray-900">Detalhes do Reagendamento</Dialog.Title>
+            <Dialog.Close className="px-4 h-9 text-sm rounded-xl border border-gray-200 bg-white hover:bg-gray-50 shadow-sm">Fechar</Dialog.Close>
           </div>
-
-          <div className="flex items-center justify-end pt-4 border-t border-gray-200/60">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-4 h-10 border border-gray-200 rounded-xl text-gray-700 bg-white hover:bg-gray-50 shadow-sm"
-            >
-              Fechar
-            </button>
+          <div className="p-4 overflow-auto max-h-[70vh]">
+            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {rows.map(([label, value]) => (
+                <div key={label} className="rounded-xl border border-gray-100 bg-white/70 p-3">
+                  <dt className="text-xs text-gray-500 mb-1">{label}</dt>
+                  <dd className="text-sm text-gray-900 break-words">{value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
-        </div>
-      </div>
-    </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }

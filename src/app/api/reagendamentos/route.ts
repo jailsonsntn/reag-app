@@ -44,13 +44,19 @@ export async function GET(request: Request) {
   const all = searchParams.get('all');
   const takeParam = searchParams.get('take');
   const pageParam = searchParams.get('page');
+  const meta = searchParams.get('meta');
   const take = all === '1' ? undefined : Math.min(Math.max(parseInt(takeParam || '100', 10) || 100, 1), 5000);
   const page = Math.max(parseInt(pageParam || '0', 10) || 0, 0);
 
   const items = await prisma.reagendamento.findMany({
-    orderBy: { createdAt: 'desc' },
+    // Ordena por data (ISO YYYY-MM-DD) desc para mais recentes primeiro
+    orderBy: { data: 'desc' },
     take,
     skip: take ? page * take : 0,
   });
+  if (meta === '1' && take !== undefined) {
+    const total = await prisma.reagendamento.count();
+    return NextResponse.json({ items, total, page, take });
+  }
   return NextResponse.json(items);
 }

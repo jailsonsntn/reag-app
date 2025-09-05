@@ -154,6 +154,16 @@ export default function AnaliseClient() {
     return [ { id: 'Reagendamentos', data: points } ];
   }, [filtered, chartGran, chartRange]);
 
+  // Registros pertencentes ao bucket do gráfico
+  const getBucketRecords = (label: string) => {
+    const prefixLen = chartGran === 'ano' ? 4 : chartGran === 'mes' ? 7 : 10;
+    return filtered.filter(r => (
+      (!chartRange.start || r.data >= chartRange.start) &&
+      (!chartRange.end || r.data <= chartRange.end) &&
+      r.data.slice(0, prefixLen) === label
+    ));
+  };
+
   if (loading) return <div className="text-gray-500">Carregando...</div>;
   if (error) return <div className="text-red-600">{error}</div>;
 
@@ -269,6 +279,7 @@ export default function AnaliseClient() {
   };
 
   const LineChart = ({ points }: { points: Array<{ x: string; y: number }> }) => {
+    const [hover, setHover] = useState<{ x: number; y: number; label: string; value: number } | null>(null);
     const width = 800;
     const height = 360;
     const padding = { top: 10, right: 10, bottom: 60, left: 50 };
@@ -290,6 +301,35 @@ export default function AnaliseClient() {
         return `${i === 0 ? 'M' : 'L'} ${x} ${y}`;
       })
       .join(' ');
+
+    // área invisível para capturar hover por "coluna" de x
+    const hoverRects = uniqX.map((xv, i) => {
+      const x = padding.left + i * xStep - xStep / 2;
+      const w = i === 0 || i === uniqX.length - 1 ? xStep / 2 : xStep;
+      const point = points.find(p => p.x === xv);
+      const coords = point ? toXY(point) : null;
+      return (
+        <rect
+          key={`hx-${i}`}
+          x={Math.max(padding.left, x)}
+          y={padding.top}
+          width={Math.max(1, w)}
+          height={innerH}
+          fill="transparent"
+          onMouseEnter={() => {
+            if (coords && point) setHover({ x: coords.x, y: coords.y, label: point.x, value: point.y });
+          }}
+          onMouseLeave={() => setHover(null)}
+          onClick={() => {
+            const recs = getBucketRecords(xv);
+            setModalTitle(`Atendimentos em ${xv}`);
+            setModalRecords(recs);
+            setModalOpen(true);
+          }}
+        />
+      );
+    });
+
     return (
       <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-[360px]">
         <line x1={padding.left} y1={padding.top} x2={padding.left} y2={height - padding.bottom} stroke="#94a3b8" />
@@ -297,7 +337,8 @@ export default function AnaliseClient() {
         <path d={pathD} fill="none" stroke="#10b981" strokeWidth={2} />
         {points.map((p, i) => {
           const { x, y } = toXY(p);
-          return <circle key={i} cx={x} cy={y} r={3} fill="#10b981" />;
+          const isActive = hover && hover.label === p.x;
+          return <circle key={i} cx={x} cy={y} r={isActive ? 5 : 3} fill={isActive ? '#059669' : '#10b981'} />;
         })}
         {/* Rótulos X */}
         {uniqX.map((xv, i) => {
@@ -320,6 +361,20 @@ export default function AnaliseClient() {
             </g>
           );
         })}
+        {/* áreas de hover */}
+        {hoverRects}
+        {/* tooltip */}
+        {hover && (
+          <g>
+            <line x1={hover.x} x2={hover.x} y1={padding.top} y2={height - padding.bottom} stroke="#e5e7eb" />
+            <circle cx={hover.x} cy={hover.y} r={5} fill="#059669" stroke="#fff" strokeWidth={2} />
+            {/* Balão */}
+            <g transform={`translate(${Math.min(width - 160, Math.max(padding.left, hover.x + 8))}, ${Math.max(padding.top + 8, hover.y - 40)})`}>
+              <rect width="150" height="32" rx="8" ry="8" fill="#111827" opacity="0.95" />
+              <text x="8" y="20" fontSize="12" fill="#fff">{hover.label}: {hover.value}</text>
+            </g>
+          </g>
+        )}
       </svg>
     );
   };

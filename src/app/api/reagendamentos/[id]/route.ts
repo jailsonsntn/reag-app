@@ -46,7 +46,7 @@ export async function PUT(
         nomePeca: b.nomePeca && b.nomePeca.trim() !== '' ? b.nomePeca : null,
       },
     });
-    return NextResponse.json(updated);
+  return NextResponse.json(updated);
   } catch (e: any) {
     return NextResponse.json({ error: 'Registro não encontrado' }, { status: 404 });
   }

@@ -6,12 +6,16 @@ import { Reagendamento } from '@/types/reagendamento';
 
 interface ReagendamentoTableProps {
   data: Reagendamento[];
+  onEdit?: (item: Reagendamento) => void;
+  onDelete?: (item: Reagendamento) => void;
+  onView?: (item: Reagendamento) => void;
+  totalCount?: number; // total geral para o cabeçalho
 }
 
 type SortKey = keyof Reagendamento;
 type SortDirection = 'asc' | 'desc';
 
-export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
+export default function ReagendamentoTable({ data, onEdit, onDelete, onView, totalCount }: ReagendamentoTableProps) {
   const [sortKey, setSortKey] = useState<SortKey>('data');
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
 
@@ -68,9 +72,9 @@ export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
 
   return (
     <div className="bg-white/90 backdrop-blur rounded-2xl border border-gray-200/60 shadow-sm overflow-hidden">
-      <div className="px-5 py-4">
+    <div className="px-5 py-4">
         <h3 className="text-lg leading-6 font-semibold text-gray-900">
-          Reagendamentos ({data.length})
+      Reagendamentos ({typeof totalCount === 'number' ? totalCount : data.length})
         </h3>
         <p className="mt-1 max-w-2xl text-sm text-gray-500">
           Lista de todas as ordens de serviço com reagendamentos
@@ -132,13 +136,13 @@ export default function ReagendamentoTable({ data }: ReagendamentoTableProps) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <div className="flex items-center space-x-2">
-                    <button className="text-indigo-600 hover:text-indigo-700">
+                    <button className="text-indigo-600 hover:text-indigo-700" onClick={() => onView?.(item)} title="Ver detalhes">
                       <Eye className="h-4 w-4" />
                     </button>
-                    <button className="text-green-600 hover:text-green-700">
+                    <button className="text-green-600 hover:text-green-700" onClick={() => onEdit?.(item)} title="Editar">
                       <Edit className="h-4 w-4" />
                     </button>
-                    <button className="text-red-600 hover:text-red-700">
+                    <button className="text-red-600 hover:text-red-700" onClick={() => onDelete?.(item)} title="Excluir">
                       <Trash2 className="h-4 w-4" />
                     </button>
                   </div>

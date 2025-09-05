@@ -1,94 +1,96 @@
-# Sistema de Reagendamentos - Assistência Técnica
+<div align="center">
 
-Web application para gerenciar reagendamentos de uma assistência técnica com dashboard de monitoramento em tempo real.
+# Reag App — Gestão de Reagendamentos de Assistência Técnica
 
-## 📋 Funcionalidades
+Desenvolvido por <strong>Jailson Santana</strong> para gerenciar o reagendamento de uma assistência técnica.
 
-- **Dashboard Principal**: Visualização em tempo real dos reagendamentos similares a planilha Excel
-- **Gestão de OS**: Controle completo das Ordens de Serviço
-- **Cadastro de Produtos**: Gestão de SKUs e produtos
-- **Controle de Técnicos**: Atribuição e acompanhamento de técnicos
-- **Sistema de Reagendamento**: Controle de datas e motivos
-- **Classificação de Peças**: Funcional ou Estética
-- **Filtros Avançados**: Busca por múltiplos critérios
-- **Relatórios**: Estatísticas e métricas em tempo real
+</div>
 
-## 🚀 Tecnologias
+## 🎯 Escopo do Projeto
 
-- **Next.js 15**: Framework React com App Router
-- **TypeScript**: Tipagem estática
-- **Tailwind CSS**: Estilização utilitária
-- **Lucide React**: Ícones modernos
-- **Radix UI**: Componentes acessíveis
-- **TanStack Table**: Tabelas avançadas
-- **Date-fns**: Manipulação de datas
+O Reag App centraliza, organiza e analisa reagendamentos de uma assistência técnica. Ele foi idealizado para substituir planilhas, oferecer um painel de controle com métricas e facilitar o dia a dia da operação (cadastro, consulta, análise e manutenção dos dados).
 
-## 📦 Instalação
+Principais objetivos:
 
-Execute o servidor de desenvolvimento:
+- Importar e consolidar dados a partir de planilhas Excel.
+- Cadastrar, editar, visualizar e excluir reagendamentos de forma segura e rápida.
+- Consultar com filtros avançados (por OS, SKU, produto, técnico, motivo, data, tipo e peça).
+- Acompanhar indicadores e distribuições na página de Análise (com tooltip interativo e detalhes por faixa).
+- Manter histórico consistente (datas normalizadas, sem duplicidades) em banco local SQLite via Prisma.
+- Operar com alta responsividade e paginação de 100 itens por página, sempre dos mais recentes para os mais antigos.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Funcionalidades
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Dashboard com tabela paginada (100 itens/página), ordenação por data (mais recente primeiro) e ações rápidas.
+- CRUD completo: adicionar, editar, visualizar (modal somente leitura) e excluir reagendamentos.
+- Filtros avançados e botão “Limpar filtros” com ícone e tooltip.
+- Página de Análise: gráfico interativo com tooltip e clique para abrir detalhes da faixa.
+- Importação de Excel (.xlsx/.xls) com conversão automática de datas (dd/mm/yyyy, Date e serial do Excel) para ISO (YYYY-MM-DD).
+- Normalização de datas existentes no banco e deduplicação por chave composta (OS, SKU, data, motivo).
+- Indicadores de total global e validação de sincronização entre planilha e banco.
+- Script Windows “StartServidor.cmd” para rodar tudo com duplo clique (instala, sincroniza, compila, inicia e abre o navegador).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧱 Arquitetura & Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Frontend: Next.js 15 (App Router) + React 19 + TypeScript.
+- Estilo/UI: Tailwind CSS v4, Radix UI, Lucide React, TanStack Table.
+- Backend: API Routes do Next.js.
+- Banco: SQLite com Prisma 6.x.
+- Validação: Zod.
+- Datas & Planilha: date-fns e xlsx.
 
-## Learn More
+## 📁 Estrutura de Diretórios (resumo)
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app` — Páginas (App Router) e APIs (`/api/reagendamentos`, `/api/reagendamentos/[id]`, `/api/seed`, `/api/maintenance/normalize-dates`).
+- `src/components` — Tabela, Dashboard, Dialogs (Add/Edit/View), filtros e cartões de estatística.
+- `src/utils` — Processamento auxiliar (datas/Excel).
+- `scripts` — Ferramentas (processar Excel, saneamento legado, rotação de backups).
+- `prisma` — `schema.prisma` e base SQLite (via `DATABASE_URL`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Como rodar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Opção A — Windows (duplo clique)
 
-## Deploy on Vercel
+1) Abra `StartServidor.cmd`.
+2) O script vai instalar dependências (se necessário), gerar Prisma, sincronizar o banco, processar o Excel se existir, compilar e iniciar o servidor.
+3) O navegador abrirá automaticamente em `http://localhost:3000`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Observações:
+- O script aceita `ReagendamentoForm2025.xlsx` ou `ReagendamentoForm2025.xls` na raiz do projeto.
+- O banco local fica em `data/reag.db` (configurado por `DATABASE_URL=file:./data/reag.db`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Opção B — Desenvolvimento
 
-## 🏷️ Release v0.2.0
+1) Configure a variável `DATABASE_URL` apontando para `file:./data/reag.db`.
+2) Execute Prisma (`generate` e `db push`).
+3) Execute `npm run dev` e acesse `http://localhost:3000`.
 
-Melhorias principais desta versão:
+## 🔄 Importação do Excel
 
-- Layout moderno no Dashboard e na página de Análise (header com blur, sombras suaves, cantos arredondados)
-- Filtros alinhados em grid responsiva e botão de limpar com ícone (tooltip no hover)
-- Modal de criação e modais da análise com fundo translúcido e bordas sutis
-- Tema global refinado (gradientes suaves e melhor contraste)
-- Build estável sem Turbopack (tolerante a unidades de rede)
-- Seed deduplicado em memória (sem `skipDuplicates`)
+- Coloque `ReagendamentoForm2025.xlsx` ou `ReagendamentoForm2025.xls` na raiz.
+- Rode `npm run process-excel` (o `StartServidor.cmd` também executa isso automaticamente quando o arquivo existe).
+- O script gera `src/data/excelData.ts` com os registros e listas auxiliares (técnicos, produtos, peças, motivos).
 
-Como atualizar localmente:
+## 🧩 API (resumo)
 
-1. Atualize dependências se necessário: `npm install`
-2. Gere e sincronize o Prisma: `npx prisma generate && npx prisma db push`
-3. Build e start: `npm run build && npm start`
+- `GET /api/reagendamentos?take=100&page=0&meta=1` — paginação (100 por página, ordenado por data desc) e metadados.
+- `POST /api/reagendamentos` — cria novo registro (validação com Zod).
+- `PUT /api/reagendamentos/[id]` — edita um registro existente.
+- `DELETE /api/reagendamentos/[id]` — remove por id.
+- `POST /api/seed` — importa em lote os dados processados do Excel (com deduplicação em memória).
+- `POST /api/maintenance/normalize-dates` — normaliza datas e resolve duplicidades.
 
-Screenshots e notas adicionais podem ser adicionados na próxima release.
+## ✅ Boas práticas implementadas
 
-## Execução com duplo clique (Windows)
+- Ordenação consistente (mais recentes primeiro) e navegação de primeira/última página.
+- Validação e normalização de entradas (Zod e utilidades de data).
+- Tratamento do serial de data do Excel e de formatos brasileiros.
+- Alta legibilidade (contraste) com variantes para dark mode.
 
-Para rodar como um “executável” dentro de uma pasta de servidor Windows:
+## 👤 Autor
 
-1. Copie a pasta inteira `reag-app` para o servidor (ex.: `C:\Apps\reag-app`).
-2. Dê duplo clique em `StartServidor.cmd`.
-	 - O script vai:
-		 - Configurar `DATABASE_URL=file:./data/reag.db` (banco local dentro da pasta).
-		 - Criar a pasta `data/` se não existir.
-		 - Instalar dependências (na primeira execução).
-		 - Gerar o Prisma Client e sincronizar o banco (`db push`).
-		 - Fazer o build e iniciar o servidor (`npm run start`).
-	 - O navegador abrirá em `http://localhost:3000`.
+Projeto desenvolvido por <strong>Jailson Santana</strong> para gerenciar o reagendamento de uma assistência técnica.
 
-Para parar, feche a janela do terminal “Reag App”. Para mudar porta, use a variável `PORT` antes do start.
+—
+
+Se tiver dúvidas ou sugestões, abra uma Issue no repositório ou entre em contato com o autor.

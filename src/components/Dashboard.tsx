@@ -8,6 +8,8 @@ import { Reagendamento } from '@/types/reagendamento';
 import ReagendamentoTable from '@/components/ReagendamentoTable';
 import FilterPanel from '@/components/FilterPanel';
 import AddReagendamentoDialog from '@/components/AddReagendamentoDialog';
+import EditReagendamentoDialog from '@/components/EditReagendamentoDialog';
+import ViewReagendamentoDialog from '@/components/ViewReagendamentoDialog';
 
 export default function Dashboard() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,9 +19,17 @@ export default function Dashboard() {
   const [dateRange, setDateRange] = useState({ start: '', end: '' });
   const [showFilters, setShowFilters] = useState(false);
   const [showAddDialog, setShowAddDialog] = useState(false);
+  const [editItem, setEditItem] = useState<Reagendamento | null>(null);
+  const [viewItem, setViewItem] = useState<Reagendamento | null>(null);
   const [reagendamentosState, setReagendamentosState] = useState<Reagendamento[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [page, setPage] = useState(0);
+  const [total, setTotal] = useState(0);
+  const pageSize = 100;
+  const excelTotal = Array.isArray(initialReagendamentos) ? (initialReagendamentos as unknown as Reagendamento[]).length : 0;
+  const [synced, setSynced] = useState(false);
+  const [validating, setValidating] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -27,31 +37,18 @@ export default function Dashboard() {
       try {
         setLoading(true);
         setError(null);
-        const res = await fetch('/api/reagendamentos', { cache: 'no-store' });
+        const res = await fetch(`/api/reagendamentos?take=${pageSize}&page=${page}&meta=1`, { cache: 'no-store' });
         if (!res.ok) throw new Error('Falha ao carregar dados do banco');
-        const arr = (await res.json()) as Reagendamento[];
+        const payload = await res.json();
+        const arr = (Array.isArray(payload) ? payload : payload.items) as Reagendamento[];
         if (!cancelled) {
-          if (Array.isArray(arr)) {
-            if (arr.length === 0) {
-              setReagendamentosState(initialReagendamentos as unknown as Reagendamento[]);
-            } else if (arr.length < 10) {
-              const key = (r: any) => `${String(r.os)}|${String(r.sku)}|${String(r.data)}|${String(r.motivo)}`;
-              const map = new Map<string, Reagendamento>();
-              for (const r of arr) map.set(key(r), r);
-              for (const r of (initialReagendamentos as unknown as Reagendamento[])) {
-                const k = key(r);
-                if (!map.has(k)) map.set(k, r);
-              }
-              setReagendamentosState(Array.from(map.values()));
-            } else {
-              setReagendamentosState(arr);
-            }
-          }
+          setReagendamentosState(arr);
+          if (!Array.isArray(payload)) setTotal(payload.total ?? arr.length);
         }
       } catch (e: any) {
         if (!cancelled) {
           setError(e?.message || 'Erro ao carregar');
-          setReagendamentosState(initialReagendamentos as unknown as Reagendamento[]);
+          setReagendamentosState([]);
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -59,10 +56,36 @@ export default function Dashboard() {
     }
     load();
     return () => { cancelled = true; };
-  }, []);
+  }, [page]);
+
+  // Valida sincronização completa: compara chaves únicas (os|sku|data|motivo) entre Excel e Banco
+  useEffect(() => {
+    let cancelled = false;
+    async function validateSyncIfNeeded() {
+      if (synced) return; // já sincronizado
+      if (total === 0 || excelTotal === 0) return;
+      if (total >= excelTotal) { setSynced(true); return; }
+      try {
+        setValidating(true);
+        const res = await fetch('/api/reagendamentos?all=1', { cache: 'no-store' });
+        if (!res.ok) return;
+        const db = (await res.json()) as Reagendamento[];
+        const key = (r: Reagendamento) => `${String(r.os)}|${String(r.sku)}|${String(r.data)}|${String(r.motivo)}`;
+        const dbSet = new Set(db.map(key));
+        const excelArr = (initialReagendamentos as unknown as Reagendamento[]);
+        const missing = excelArr.filter(r => !dbSet.has(key(r)));
+        if (!cancelled) setSynced(missing.length === 0);
+        if (!cancelled) setTotal(db.length);
+      } finally {
+        if (!cancelled) setValidating(false);
+      }
+    }
+    validateSyncIfNeeded();
+    return () => { cancelled = true; };
+  }, [total, excelTotal, synced]);
 
   const filteredReagendamentos = useMemo(() => {
-    return reagendamentosState.filter((item) => {
+  const base = reagendamentosState.filter((item) => {
       const q = searchTerm.toLowerCase();
       const matchesSearch =
         item.os.toString().toLowerCase().includes(q) ||
@@ -80,6 +103,8 @@ export default function Dashboard() {
 
       return matchesSearch && matchesTecnico && matchesMotivo && matchesTipo && matchesDateRange;
     });
+    // Ordena por data desc (mais recentes primeiro)
+    return base.sort((a, b) => (a.data < b.data ? 1 : a.data > b.data ? -1 : 0));
   }, [searchTerm, selectedTecnico, selectedMotivo, selectedTipo, dateRange, reagendamentosState]);
 
   const stats = useMemo(() => {
@@ -178,12 +203,51 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
   {loading ? (
           <div className="text-gray-500 mb-4">Carregando dados...</div>
         ) : error ? (
           <div className="text-red-600 mb-4">{error}</div>
   ) : null}
+        {total > 0 && excelTotal > total && !synced && (
+          <div className="mb-4 p-4 rounded-xl border border-blue-200/60 bg-blue-50 text-blue-900 flex items-center justify-between gap-4">
+            <div>
+              Detectamos {total} registros no banco, mas o Excel possui {excelTotal}. Deseja importar os faltantes?
+            </div>
+            <button
+              className="px-3 h-9 rounded bg-blue-600 text-white hover:bg-blue-700"
+              onClick={async () => {
+                try {
+                  setLoading(true);
+                  const res = await fetch('/api/seed', { method: 'POST' });
+                  if (!res.ok) throw new Error('Falha ao importar do Excel');
+                  // Recarrega e valida sincronização
+                  const again = await fetch(`/api/reagendamentos?take=${pageSize}&page=0&meta=1`, { cache: 'no-store' });
+                  const payload = await again.json();
+                  setPage(0);
+                  setReagendamentosState(payload.items ?? []);
+                  setTotal(payload.total ?? 0);
+                  // Validação final
+                  const resAll = await fetch('/api/reagendamentos?all=1', { cache: 'no-store' });
+                  if (resAll.ok) {
+                    const db = (await resAll.json()) as Reagendamento[];
+                    const key = (r: Reagendamento) => `${String(r.os)}|${String(r.sku)}|${String(r.data)}|${String(r.motivo)}`;
+                    const dbSet = new Set(db.map(key));
+                    const excelArr = (initialReagendamentos as unknown as Reagendamento[]);
+                    const missing = excelArr.filter(r => !dbSet.has(key(r)));
+                    setSynced(missing.length === 0);
+                  }
+                } catch (e: any) {
+                  setError(e?.message || 'Erro ao importar');
+                } finally {
+                  setLoading(false);
+                }
+              }}
+            >
+              {validating ? 'Validando...' : 'Importar do Excel'}
+            </button>
+          </div>
+        )}
 
   {/* Painel de métricas removido: análise será em página dedicada */}
 
@@ -208,7 +272,7 @@ export default function Dashboard() {
           />
         )}
 
-        {reagendamentosState.length === 0 && (
+  {reagendamentosState.length === 0 && (
           <div className="mb-4 p-4 border rounded bg-yellow-50 text-yellow-800">
             Nenhum registro no banco. Você pode semear os dados iniciais a partir do Excel.
             <button
@@ -219,9 +283,10 @@ export default function Dashboard() {
                   const res = await fetch('/api/seed', { method: 'POST' });
                   if (!res.ok) throw new Error('Falha ao semear banco');
                   // Recarregar após seed
-                  const again = await fetch('/api/reagendamentos', { cache: 'no-store' });
-                  const arr = (await again.json()) as Reagendamento[];
-                  setReagendamentosState(arr);
+      const again = await fetch(`/api/reagendamentos?take=${pageSize}&page=${page}&meta=1`, { cache: 'no-store' });
+      const payload = await again.json();
+      setReagendamentosState(payload.items ?? []);
+      setTotal(payload.total ?? 0);
                 } catch (e: any) {
                   setError(e?.message || 'Erro ao semear');
                 } finally {
@@ -234,18 +299,89 @@ export default function Dashboard() {
           </div>
         )}
 
-  <ReagendamentoTable data={filteredReagendamentos} />
+  <ReagendamentoTable
+    data={filteredReagendamentos}
+  totalCount={total}
+    onEdit={(item) => setEditItem(item)}
+    onDelete={async (item) => {
+      const ok = window.confirm('Tem certeza que deseja excluir este registro?');
+      if (!ok) return;
+      try {
+        const res = await fetch(`/api/reagendamentos/${item.id}`, { method: 'DELETE' });
+        if (!res.ok) throw new Error('Falha ao excluir');
+        setReagendamentosState(prev => prev.filter(r => r.id !== item.id));
+      } catch (e) {
+        console.error(e);
+        alert('Não foi possível excluir.');
+      }
+    }}
+  onView={(item) => setViewItem(item)}
+  />
+  {/* Observação de total da página atual */}
+  <div className="mt-2 text-xs text-gray-500">Exibindo {filteredReagendamentos.length} registros nesta página</div>
+  {total > pageSize && (
+    <div className="mt-4 flex items-center justify-between">
+      <span className="text-sm text-gray-600">Página {page + 1} de {Math.max(1, Math.ceil(total / pageSize))}</span>
+      <div className="flex gap-2">
+        <button
+          className="px-3 h-9 rounded border border-gray-200 bg-white disabled:opacity-50"
+          onClick={() => setPage(0)}
+          disabled={page === 0}
+        >Primeira</button>
+        <button
+          className="px-3 h-9 rounded border border-gray-200 bg-white disabled:opacity-50"
+          onClick={() => setPage(p => Math.max(0, p - 1))}
+          disabled={page === 0}
+        >Anterior</button>
+        <button
+          className="px-3 h-9 rounded border border-gray-200 bg-white disabled:opacity-50"
+          onClick={() => setPage(p => (p + 1 < Math.ceil(total / pageSize) ? p + 1 : p))}
+          disabled={page + 1 >= Math.ceil(total / pageSize)}
+        >Próxima</button>
+        <button
+          className="px-3 h-9 rounded border border-gray-200 bg-white disabled:opacity-50"
+          onClick={() => setPage(Math.max(0, Math.ceil(total / pageSize) - 1))}
+          disabled={page + 1 >= Math.ceil(total / pageSize)}
+        >Última</button>
+      </div>
+    </div>
+  )}
       </div>
 
       {showAddDialog && (
         <AddReagendamentoDialog
           isOpen={showAddDialog}
           onClose={() => setShowAddDialog(false)}
-          onAdd={(novo: Reagendamento) => setReagendamentosState(prev => [novo, ...prev])}
+          onAdd={(novo: Reagendamento) => {
+            // Garante inserção no topo e volta para a primeira página
+            setReagendamentosState(prev => [novo, ...prev]);
+            setPage(0);
+          }}
           tecnicos={tecnicos}
           produtos={produtos}
           pecas={pecas}
           motivosReagendamento={motivos}
+        />
+      )}
+      {editItem && (
+        <EditReagendamentoDialog
+          isOpen={!!editItem}
+          onClose={() => setEditItem(null)}
+          item={editItem}
+          onUpdated={(upd) => {
+            setReagendamentosState(prev => prev.map(r => r.id === upd.id ? upd : r));
+          }}
+          tecnicos={tecnicos}
+          produtos={produtos}
+          pecas={pecas}
+          motivosReagendamento={motivos}
+        />
+      )}
+      {viewItem && (
+        <ViewReagendamentoDialog
+          isOpen={!!viewItem}
+          onClose={() => setViewItem(null)}
+          item={viewItem}
         />
       )}
   </div>

@@ -1,17 +1,5 @@
-// Dados processados do Excel - 2025-09-04T18:00:48.619Z
-export interface Reagendamento {
-  id: string;
-  os: string;
-  sku: string;
-  produto: string;
-  tecnico: string;
-  data: string;
-  teveReagendamento: boolean;
-  motivo: string;
-  codigoPeca: string;
-  tipo: string;
-  nomePeca: string;
-}
+// Dados processados do Excel - 2025-09-05T14:44:35.503Z
+export interface Reagendamento { id: string; os: string; sku: string; produto: string; tecnico: string; data: string; teveReagendamento: boolean; motivo: string; codigoPeca: string; tipo: string; nomePeca: string; }
 
 export const reagendamentos: Reagendamento[] = [
   {
@@ -37,7 +25,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -193,7 +181,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -206,7 +194,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -245,7 +233,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11176812",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -310,7 +298,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -323,7 +311,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -401,7 +389,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -466,7 +454,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -531,7 +519,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -635,7 +623,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -674,7 +662,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -700,7 +688,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -765,7 +753,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -830,7 +818,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -882,7 +870,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -908,7 +896,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -921,7 +909,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -934,7 +922,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -973,7 +961,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1038,7 +1026,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1051,7 +1039,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1064,7 +1052,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11677634",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -1077,7 +1065,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1116,7 +1104,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1142,7 +1130,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1181,7 +1169,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1194,7 +1182,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1298,7 +1286,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1350,7 +1338,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1376,7 +1364,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1402,7 +1390,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1415,7 +1403,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1480,7 +1468,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1493,7 +1481,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1610,7 +1598,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": false,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1636,7 +1624,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1675,7 +1663,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1727,7 +1715,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1740,7 +1728,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1766,7 +1754,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225164",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -1792,7 +1780,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1818,7 +1806,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1831,7 +1819,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1870,7 +1858,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -1883,7 +1871,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225169",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -1948,7 +1936,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11461800",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -2000,7 +1988,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2039,7 +2027,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2078,7 +2066,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2234,7 +2222,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2286,7 +2274,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2312,7 +2300,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2351,7 +2339,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2364,7 +2352,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2377,7 +2365,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2403,7 +2391,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2429,7 +2417,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2442,7 +2430,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2481,7 +2469,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2520,7 +2508,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2559,7 +2547,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2572,7 +2560,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2728,7 +2716,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2767,7 +2755,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2780,7 +2768,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2858,7 +2846,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2871,7 +2859,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11176812",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -2910,7 +2898,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2949,7 +2937,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -2988,7 +2976,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3105,7 +3093,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3131,7 +3119,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3144,7 +3132,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3209,7 +3197,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3222,7 +3210,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225170",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -3261,7 +3249,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3339,7 +3327,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3352,7 +3340,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3443,7 +3431,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3469,7 +3457,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3482,7 +3470,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3508,7 +3496,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3534,7 +3522,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3612,7 +3600,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3625,7 +3613,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3638,7 +3626,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3651,7 +3639,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3664,7 +3652,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3690,7 +3678,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3729,7 +3717,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3742,7 +3730,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3755,7 +3743,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3768,7 +3756,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3820,7 +3808,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3846,7 +3834,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3859,7 +3847,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11510498",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -3872,7 +3860,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3937,7 +3925,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -3950,7 +3938,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W10884837",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -3963,7 +3951,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4002,7 +3990,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11176812",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -4015,7 +4003,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4080,7 +4068,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4106,7 +4094,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4171,7 +4159,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4184,7 +4172,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4197,7 +4185,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4210,7 +4198,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4262,7 +4250,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4340,7 +4328,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4392,7 +4380,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4405,7 +4393,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4418,7 +4406,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11677635",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -4444,7 +4432,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4457,7 +4445,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4470,7 +4458,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4483,7 +4471,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4496,7 +4484,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4522,7 +4510,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4587,7 +4575,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W10510307",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4613,7 +4601,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4652,7 +4640,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4665,7 +4653,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4691,7 +4679,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4717,7 +4705,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4756,7 +4744,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4782,7 +4770,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4808,7 +4796,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4821,7 +4809,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4860,7 +4848,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4886,7 +4874,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -4938,7 +4926,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225170",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -4990,7 +4978,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5133,7 +5121,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5198,7 +5186,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5224,7 +5212,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5250,7 +5238,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5263,7 +5251,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11209044",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Prateleira fast"
   },
   {
@@ -5341,7 +5329,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5367,7 +5355,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11713862",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta"
   },
   {
@@ -5471,7 +5459,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5484,7 +5472,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5523,7 +5511,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5627,7 +5615,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5640,7 +5628,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5666,7 +5654,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5679,7 +5667,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225164",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -5718,7 +5706,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5796,7 +5784,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5835,7 +5823,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5848,7 +5836,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5887,7 +5875,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -5900,7 +5888,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6004,7 +5992,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11631149",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -6030,7 +6018,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6095,7 +6083,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6147,7 +6135,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6173,7 +6161,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6225,7 +6213,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6238,7 +6226,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6290,7 +6278,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6316,7 +6304,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11761158",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -6472,7 +6460,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6524,7 +6512,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225181",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -6537,7 +6525,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11616713",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador esq"
   },
   {
@@ -6563,7 +6551,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225169",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -6589,7 +6577,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225171",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -6628,7 +6616,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6641,7 +6629,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11510281",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Chao forno"
   },
   {
@@ -6719,7 +6707,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11707022",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -6732,7 +6720,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6745,7 +6733,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6784,7 +6772,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W10884837",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -6940,7 +6928,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -6966,7 +6954,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7005,7 +6993,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225170",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -7018,7 +7006,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7070,7 +7058,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "Mangueira",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7083,7 +7071,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7096,7 +7084,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7122,7 +7110,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7174,7 +7162,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7213,7 +7201,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W10884837",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Ferrugem"
   },
   {
@@ -7226,7 +7214,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7239,7 +7227,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7356,7 +7344,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11768008",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Kit console"
   },
   {
@@ -7434,7 +7422,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7447,7 +7435,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7499,7 +7487,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7512,7 +7500,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7590,7 +7578,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7616,7 +7604,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7629,7 +7617,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11742868",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -7707,7 +7695,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7759,7 +7747,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7811,7 +7799,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7850,7 +7838,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7863,7 +7851,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11491455",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -7876,7 +7864,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7902,7 +7890,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7915,7 +7903,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7928,7 +7916,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7941,7 +7929,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7954,7 +7942,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7967,7 +7955,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7980,7 +7968,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -7993,7 +7981,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8045,7 +8033,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8071,7 +8059,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225164",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -8097,7 +8085,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8110,7 +8098,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8149,7 +8137,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8175,7 +8163,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8409,7 +8397,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8513,7 +8501,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8552,7 +8540,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225171",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -8604,7 +8592,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": "Resistencia auxiliar"
   },
   {
@@ -8643,7 +8631,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8682,7 +8670,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8760,7 +8748,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8786,7 +8774,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8799,7 +8787,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8812,7 +8800,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11351067",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8838,7 +8826,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8851,7 +8839,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8864,7 +8852,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8929,7 +8917,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8981,7 +8969,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -8994,7 +8982,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9007,7 +8995,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9137,7 +9125,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": false,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9163,7 +9151,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225169",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -9202,7 +9190,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9254,7 +9242,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9306,7 +9294,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9319,7 +9307,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W10884837",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -9358,7 +9346,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9449,7 +9437,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9475,7 +9463,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9488,7 +9476,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9540,7 +9528,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9553,7 +9541,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9566,7 +9554,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11368462",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta freezer"
   },
   {
@@ -9618,7 +9606,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": "Acabamento gabinete"
   },
   {
@@ -9644,7 +9632,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9657,7 +9645,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9670,7 +9658,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11176827",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -9696,7 +9684,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9709,7 +9697,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9748,7 +9736,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9813,7 +9801,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9839,7 +9827,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9852,7 +9840,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9878,7 +9866,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -9930,7 +9918,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11626275",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -10008,7 +9996,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10112,7 +10100,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10177,7 +10165,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10203,7 +10191,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10281,7 +10269,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10307,7 +10295,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10320,7 +10308,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10359,7 +10347,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10385,7 +10373,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10411,7 +10399,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10476,7 +10464,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10502,7 +10490,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10541,7 +10529,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11225170",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -10606,7 +10594,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10632,7 +10620,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10710,7 +10698,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10762,7 +10750,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10801,7 +10789,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10827,7 +10815,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10866,7 +10854,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10931,7 +10919,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10944,7 +10932,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -10996,7 +10984,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11022,7 +11010,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11048,7 +11036,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11087,7 +11075,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11113,7 +11101,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11191,7 +11179,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11269,7 +11257,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "W11187683",
-    "tipo": "ESTÉTICA",
+    "tipo": "ESTETICA",
     "nomePeca": "Porta refrigerador"
   },
   {
@@ -11282,7 +11270,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11295,7 +11283,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11321,7 +11309,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11386,7 +11374,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11646,7 +11634,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11672,7 +11660,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11685,7 +11673,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11880,7 +11868,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11893,7 +11881,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "ENL",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11945,7 +11933,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -11984,7 +11972,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -12140,7 +12128,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -12153,7 +12141,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -12166,7 +12154,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -12179,7 +12167,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -12231,7 +12219,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -12322,7 +12310,7 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "NTN",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   },
   {
@@ -12335,323 +12323,315 @@ export const reagendamentos: Reagendamento[] = [
     "teveReagendamento": true,
     "motivo": "VCP",
     "codigoPeca": "",
-    "tipo": "",
+    "tipo": "FUNCIONAL",
     "nomePeca": ""
   }
 ];
-
-export const estatisticas = {
-  total: 948,
-  reagendamentos: 945,
-  tecnicos: 12,
-  produtos: 20,
-  pecas: 264
-};
 
 export const tecnicos = [
   "ADILSON",
   "ADRIANO",
   "ANDERSON",
-  "FABIO",
-  "JOSE ERIVANDO",
-  "ROBSON",
   "BRUNO",
   "CELSO",
+  "CLAUDIO",
+  "DANIEL",
+  "FABIO",
+  "JOSE ERIVANDO",
   "PABLO",
   "RINALDO",
-  "DANIEL",
-  "CLAUDIO"
+  "ROBSON"
 ];
 export const produtos = [
-  "REFRIGERADOR",
-  "SECADORA DE ROUPAS",
-  "MICROONDAS",
+  "ADEGA",
+  "BBLEND",
+  "BBLEND ",
+  "CERVEJEIRA",
+  "COIFA",
+  "COND. DE AR JANELA",
+  "COND. DE AR SPLIT",
+  "COOKTOP",
+  "FOGÃO",
+  "FORNO",
   "FORNO ",
+  "FREEZER HORIZONTAL",
+  "FREEZER VERTICAL",
+  "LAVA E SECA",
   "LAVA-LOUÇAS",
   "LAVADORA DE ROUPAS",
-  "COND. DE AR JANELA",
-  "FREEZER VERTICAL",
-  "COOKTOP",
-  "LAVA E SECA",
-  "FOGÃO",
-  "CERVEJEIRA",
-  "ADEGA",
-  "BBLEND ",
-  "COIFA",
+  "MICROONDAS",
   "PURIFICADOR",
-  "COND. DE AR SPLIT",
-  "FREEZER HORIZONTAL",
-  "BBLEND",
-  "FORNO"
+  "REFRIGERADOR",
+  "SECADORA DE ROUPAS"
 ];
 export const pecas = [
-  "Compressor",
-  "Roldana",
-  "Magnetron",
-  "Placa interface",
-  "Capacitor",
-  "Kit sensor de nivel",
-  "Evaporador",
-  "Cj suporte do motor",
-  "Cj placa",
-  "Alojamento do filtro",
-  "Tampa recipiente",
-  "Manipulo de acionamento",
-  "Rede eletrica",
-  "Porta freezer",
-  "Complemento linha",
-  "Placa cp",
-  "Eletrobomba de circulacao",
-  "Filtro secador",
-  "Placa de controle",
-  "Tampa movel",
-  "Cj duto",
-  "Capa frontal e traseira",
-  "Condensador ",
-  "Trava da porta",
-  "Gancho da dobradica",
-  "Barra iluminacao",
-  "Controle eletronico",
-  "Sensor de temperatura",
-  "Gaveta de legumes",
-  "Capa frontal",
-  "Condensador 9 filas",
-  "Placa controle",
-  "Gaxeta",
-  "Resistencia",
-  "Duto",
-  "Base plastica",
-  "Mecanismo",
-  "Came",
-  "Motor ventilador",
-  "Ventilador conj",
-  "Tremp",
-  "Porta refrigerador",
-  "Mangueira externa",
-  "Damper",
-  "Interface",
-  "PLACA CONTROLADORA",
-  "Cj rele",
-  "Isolacao",
-  "Recipiente de evaporacao",
-  "Mangueira de saida",
-  "Valvula de entrada",
-  "Termopar",
-  "Pino da dobradica",
-  "Cunha do suporte",
-  "Interruptor da porta",
-  "Cj console",
-  "Manipulo ",
-  "Valvula",
-  "Rele",
-  "Rede eletrica sup",
-  "Valvula do dreno",
-  "Queimador",
-  "Anel hidro",
-  "Vareta de suspensão",
-  "Cabo de alimentacao",
-  "Kit placa potencia",
-  "Eletrobomba de drenagem",
-  "Pcb eletronic",
-  "Tampa cold room",
-  "Pressostato",
-  "Sensor",
-  "Gab",
-  "Cj cesto ",
-  "Bucha",
-  "Conjunto ventilador",
-  "Cordao de alimentacao",
-  "Mangueira dren",
-  "Anel do tanque",
-  "Ventilador axial",
-  "Mancal do tambor",
-  "Lampada",
-  "Placa CP",
-  "Eletrobomba",
-  "Conj placa do evaporador",
-  "Isolacao acustica",
-  "Eletrobomba de carbonatacao",
-  "Mangueira de drenagem",
-  "Condensador",
-  "Kit conversao",
-  "Interruptor",
-  "Kit mecanismo",
-  "Filtro",
-  "Bomba de agua",
-  "Gaxeta refrigerador",
-  "Amortecedor",
-  "Controle remoto",
-  "Mecanismo kit",
-  "Mecanismo cesto ",
-  "Kit flowmeter",
-  "Painel de controle",
-  "Eixo",
-  "Suporte injetor",
-  "Cj eletrobomba",
-  "Porta ext",
-  "Cordão de alimentacao",
-  "Kit puxador",
-  "Dispenser",
-  "Kit glp",
-  "Manipulo preto",
-  "Flowmeter",
-  "Filtro secador metalico",
-  "Cj tanque",
-  "Motor",
-  "Placa eletronica",
-  "Vareta de suspensao",
-  "Silicone",
-  "Correia",
-  "Conjunto interface",
-  "Haste metalica",
-  "Gaxeta do tubo de succao",
-  "Capa intermediaria",
-  "Suporte do injetor",
-  "Kit filtro pastilha",
-  "Mesa",
-  "Tirante",
-  "Resistencia degelo",
-  "Termostato",
-  "Ventilador",
-  "Conj suspensao",
-  "Porta embalada",
-  "Espalhador",
-  "Mangueira externa drenagem",
-  "Kit isolacao mesa",
-  "Porta forno",
-  "Conj interface",
-  "Capa traseira",
-  "Kit console",
-  "Valvula ",
-  "Dotyk interface",
-  "Cj duto + valvula",
-  "Prateleira fast",
-  "Conj athena",
-  "Duto de ar",
-  "Cj cesto",
-  "Porta",
-  "Caixa controle",
-  "Mesa inox",
-  "Mangueira drenagem",
-  "Eletrobomba ",
-  "Injetor",
-  "Recipiente",
-  "Placa potencia",
-  "Megencoder",
-  "Mangueira pressostato",
-  "Placa fonte",
-  "Controle dotyk",
-  "Correia polia",
-  "Membrana ",
-  "C rele",
-  "Vidro interno",
-  "Mangueira",
-  "Chao forno",
-  "Porta refrigerador esq",
-  "Trilho",
-  "Conj ventilador",
-  "Cj gaxeta",
-  "Difusor",
-  "Valvula simples",
-  "Timer",
-  "Cj tampa vidro",
-  "Ferrugem",
-  "Manta acustica",
-  "Placa de contrle",
   "Acabamento canto",
-  "Filtro de agua",
-  "Rede superior",
-  "Defletor",
-  "Cj tampa movel",
-  "Válvula",
-  "Calha degelo",
-  "tampa plastica",
-  "Capa do sensor",
-  "Caixa de controle",
-  "Valvula entrada",
-  "Polia",
-  "Capa queimador",
-  "Ice maker",
-  "Modulo inverter",
-  "Agrup usina",
-  "Placa de potencia",
-  "Rodape",
-  "Relogio eletronico",
-  "Cj vidro externo",
-  "Resistencia auxiliar",
-  "Agr megenconder",
-  "Red lid switch",
-  "Agitador",
-  "Presilha registro",
-  "CP1511",
-  "Clipe do eletrodo",
-  "Bomba de dispensamento",
-  "Registro ramal",
-  "Eletobomba de carbonatacao",
-  "Manipulo",
-  "Eletrodo",
-  "Cj vidro tampão",
-  "Membrana",
-  "Alojamento dispenser",
-  "Cesto plastico",
-  "Motor do dispenser",
-  "Gaxeta emb do tambor",
-  "Cj cesto hibrido",
-  "Gaxeta freezer",
-  "Bomba drenagem",
-  "Eletrobomba carbonatacao",
-  "Cj freio",
   "Acabamento gabinete",
-  "Vidro externo",
-  "Painel interface",
-  "Cj mecanismo",
-  "Kit placas",
-  "Eletrobomba drenagem",
-  "Cordao de alimetacao",
-  "Vareta de suspencao",
-  "Capa traseira eps",
-  "Motor 1/4",
-  "Kit placas eletronicas",
-  "Placa potencia e interface",
-  "Lateral",
-  "Cordao alimentacao",
-  "Defletor de ar",
+  "Agitador",
+  "Agr megenconder",
+  "Agrup usina",
+  "Alojamento dispenser",
+  "Alojamento do filtro",
+  "Amortecedor",
+  "Anel do tanque",
+  "Anel hidro",
   "Atuador de freio",
-  "Resistencia de aquecimento",
-  "Microchave monitora",
-  "Ventilador conjunto",
-  "Retentor da bomba ",
-  "Suporte forma de gelo",
+  "Barra iluminacao",
+  "Base plastica",
   "Bobina",
-  "Conj. athena",
-  "Tanque",
-  "Placa",
-  "Cj duto e valvula",
-  "Trilho superior direito",
-  "Trava da porta interna",
-  "Rede inferior",
-  "Puxador lateral",
-  "Botao de acionamento",
-  "Protecao da polia",
-  "Termistor",
-  "Cuba",
-  "Gaxeta do refrigerador",
-  "Botao do pressostato",
-  "Puxador",
-  "Inversor",
-  "Cola",
-  "Protetor da polia",
+  "Bomba de agua",
   "Bomba de carbonatacao",
-  "Conjunto console",
-  "Filtro de ar",
-  "Retentor da bomba",
-  "Vidro forno",
-  "Disco de apoio",
+  "Bomba de dispensamento",
+  "Bomba drenagem",
+  "Botao de acionamento",
+  "Botao do pressostato",
+  "Bucha",
+  "C rele",
+  "CP1511",
+  "Cabo de alimentacao",
   "Cabo de energia",
-  "Came articulado"
+  "Caixa controle",
+  "Caixa de controle",
+  "Calha degelo",
+  "Came",
+  "Came articulado",
+  "Capa do sensor",
+  "Capa frontal",
+  "Capa frontal e traseira",
+  "Capa intermediaria",
+  "Capa queimador",
+  "Capa traseira",
+  "Capa traseira eps",
+  "Capacitor",
+  "Cesto plastico",
+  "Chao forno",
+  "Cj cesto",
+  "Cj cesto ",
+  "Cj cesto hibrido",
+  "Cj console",
+  "Cj duto",
+  "Cj duto + valvula",
+  "Cj duto e valvula",
+  "Cj eletrobomba",
+  "Cj freio",
+  "Cj gaxeta",
+  "Cj mecanismo",
+  "Cj placa",
+  "Cj rele",
+  "Cj suporte do motor",
+  "Cj tampa movel",
+  "Cj tampa vidro",
+  "Cj tanque",
+  "Cj vidro externo",
+  "Cj vidro tampão",
+  "Clipe do eletrodo",
+  "Cola",
+  "Complemento linha",
+  "Compressor",
+  "Condensador",
+  "Condensador ",
+  "Condensador 9 filas",
+  "Conj athena",
+  "Conj interface",
+  "Conj placa do evaporador",
+  "Conj suspensao",
+  "Conj ventilador",
+  "Conj. athena",
+  "Conjunto console",
+  "Conjunto interface",
+  "Conjunto ventilador",
+  "Controle dotyk",
+  "Controle eletronico",
+  "Controle remoto",
+  "Cordao alimentacao",
+  "Cordao de alimentacao",
+  "Cordao de alimetacao",
+  "Cordão de alimentacao",
+  "Correia",
+  "Correia polia",
+  "Cuba",
+  "Cunha do suporte",
+  "Damper",
+  "Defletor",
+  "Defletor de ar",
+  "Difusor",
+  "Disco de apoio",
+  "Dispenser",
+  "Dotyk interface",
+  "Duto",
+  "Duto de ar",
+  "Eixo",
+  "Eletobomba de carbonatacao",
+  "Eletrobomba",
+  "Eletrobomba ",
+  "Eletrobomba carbonatacao",
+  "Eletrobomba de carbonatacao",
+  "Eletrobomba de circulacao",
+  "Eletrobomba de drenagem",
+  "Eletrobomba drenagem",
+  "Eletrodo",
+  "Espalhador",
+  "Evaporador",
+  "Ferrugem",
+  "Filtro",
+  "Filtro de agua",
+  "Filtro de ar",
+  "Filtro secador",
+  "Filtro secador metalico",
+  "Flowmeter",
+  "Gab",
+  "Gancho da dobradica",
+  "Gaveta de legumes",
+  "Gaxeta",
+  "Gaxeta do refrigerador",
+  "Gaxeta do tubo de succao",
+  "Gaxeta emb do tambor",
+  "Gaxeta freezer",
+  "Gaxeta refrigerador",
+  "Haste metalica",
+  "Ice maker",
+  "Injetor",
+  "Interface",
+  "Interruptor",
+  "Interruptor da porta",
+  "Inversor",
+  "Isolacao",
+  "Isolacao acustica",
+  "Kit console",
+  "Kit conversao",
+  "Kit filtro pastilha",
+  "Kit flowmeter",
+  "Kit glp",
+  "Kit isolacao mesa",
+  "Kit mecanismo",
+  "Kit placa potencia",
+  "Kit placas",
+  "Kit placas eletronicas",
+  "Kit puxador",
+  "Kit sensor de nivel",
+  "Lampada",
+  "Lateral",
+  "Magnetron",
+  "Mancal do tambor",
+  "Mangueira",
+  "Mangueira de drenagem",
+  "Mangueira de saida",
+  "Mangueira dren",
+  "Mangueira drenagem",
+  "Mangueira externa",
+  "Mangueira externa drenagem",
+  "Mangueira pressostato",
+  "Manipulo",
+  "Manipulo ",
+  "Manipulo de acionamento",
+  "Manipulo preto",
+  "Manta acustica",
+  "Mecanismo",
+  "Mecanismo cesto ",
+  "Mecanismo kit",
+  "Megencoder",
+  "Membrana",
+  "Membrana ",
+  "Mesa",
+  "Mesa inox",
+  "Microchave monitora",
+  "Modulo inverter",
+  "Motor",
+  "Motor 1/4",
+  "Motor do dispenser",
+  "Motor ventilador",
+  "PLACA CONTROLADORA",
+  "Painel de controle",
+  "Painel interface",
+  "Pcb eletronic",
+  "Pino da dobradica",
+  "Placa",
+  "Placa CP",
+  "Placa controle",
+  "Placa cp",
+  "Placa de contrle",
+  "Placa de controle",
+  "Placa de potencia",
+  "Placa eletronica",
+  "Placa fonte",
+  "Placa interface",
+  "Placa potencia",
+  "Placa potencia e interface",
+  "Polia",
+  "Porta",
+  "Porta embalada",
+  "Porta ext",
+  "Porta forno",
+  "Porta freezer",
+  "Porta refrigerador",
+  "Porta refrigerador esq",
+  "Prateleira fast",
+  "Presilha registro",
+  "Pressostato",
+  "Protecao da polia",
+  "Protetor da polia",
+  "Puxador",
+  "Puxador lateral",
+  "Queimador",
+  "Recipiente",
+  "Recipiente de evaporacao",
+  "Red lid switch",
+  "Rede eletrica",
+  "Rede eletrica sup",
+  "Rede inferior",
+  "Rede superior",
+  "Registro ramal",
+  "Rele",
+  "Relogio eletronico",
+  "Resistencia",
+  "Resistencia auxiliar",
+  "Resistencia de aquecimento",
+  "Resistencia degelo",
+  "Retentor da bomba",
+  "Retentor da bomba ",
+  "Rodape",
+  "Roldana",
+  "Sensor",
+  "Sensor de temperatura",
+  "Silicone",
+  "Suporte do injetor",
+  "Suporte forma de gelo",
+  "Suporte injetor",
+  "Tampa cold room",
+  "Tampa movel",
+  "Tampa recipiente",
+  "Tanque",
+  "Termistor",
+  "Termopar",
+  "Termostato",
+  "Timer",
+  "Tirante",
+  "Trava da porta",
+  "Trava da porta interna",
+  "Tremp",
+  "Trilho",
+  "Trilho superior direito",
+  "Valvula",
+  "Valvula ",
+  "Valvula de entrada",
+  "Valvula do dreno",
+  "Valvula entrada",
+  "Valvula simples",
+  "Vareta de suspencao",
+  "Vareta de suspensao",
+  "Vareta de suspensão",
+  "Ventilador",
+  "Ventilador axial",
+  "Ventilador conj",
+  "Ventilador conjunto",
+  "Vidro externo",
+  "Vidro forno",
+  "Vidro interno",
+  "Válvula",
+  "tampa plastica"
 ];
 export const motivos = [
-  "VCP",
+  "ENL",
   "NTN",
-  "ENL"
+  "VCP"
 ];

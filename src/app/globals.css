@@ -38,6 +38,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Aumenta contraste padrão de texto em inputs/selects/labels para evitar aparência “clara demais” em alguns navegadores */
+label { color: #111827; /* gray-900 */ }
+@media (prefers-color-scheme: dark) {
+  label { color: #e5e7eb; /* gray-200 */ }
+}
+
+input, select, textarea {
+  color: #111827; /* gray-900 */
+}
+@media (prefers-color-scheme: dark) {
+  input, select, textarea {
+    color: #e5e7eb; /* gray-200 */
+  }
+}
+
 /* Scrollbar mais discreto */
 * {
   scrollbar-width: thin;
