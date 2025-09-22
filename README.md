@@ -1,3 +1,21 @@
+## Backup e Restauração
+
+Este projeto inclui um mecanismo de backup para proteger os dados dos reagendamentos.
+
+- Botão Backup: disponível no topo do Dashboard. Ao clicar, é criado um backup do banco (SQLite) e um export JSON.
+- Auto-backup: enquanto a página estiver aberta, um backup é realizado a cada 15 minutos.
+- Ao fechar a aba/janela: é disparado um backup final automaticamente (best-effort via sendBeacon).
+
+Arquivos gerados:
+- Banco: `prisma/backups/reag.<timestamp>.db`
+- Export JSON: `src/data/backups/reagendamentos.<timestamp>.json`
+
+Retenção: os backups são rotacionados automaticamente mantendo os 10 mais recentes.
+
+Observações:
+- Em alguns navegadores, o envio no fechamento da aba é best‑effort e pode não aguardar a conclusão do backup em redes lentas.
+- Para executar manualmente via API: `POST /api/backup`.
+
 <div align="center">
 
 # Reag App — Gestão de Reagendamentos de Assistência Técnica

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
-import { Search, Filter, Plus, Calendar, Users, Package, Wrench, BarChart } from 'lucide-react';
+import { Search, Filter, Plus, Calendar, Users, Package, Wrench, BarChart, HardDrive } from 'lucide-react';
 import Link from 'next/link';
 import { reagendamentos as initialReagendamentos, tecnicos, produtos, pecas, motivos } from '@/data/excelData';
 import { Reagendamento } from '@/types/reagendamento';
@@ -30,6 +30,8 @@ export default function Dashboard() {
   const excelTotal = Array.isArray(initialReagendamentos) ? (initialReagendamentos as unknown as Reagendamento[]).length : 0;
   const [synced, setSynced] = useState(false);
   const [validating, setValidating] = useState(false);
+  const [backingUp, setBackingUp] = useState(false);
+  const [lastBackupAt, setLastBackupAt] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -57,6 +59,37 @@ export default function Dashboard() {
     load();
     return () => { cancelled = true; };
   }, [page]);
+
+  // Auto-backup: executa a cada 15 minutos enquanto a página está aberta
+  useEffect(() => {
+    let cancelled = false;
+    const doBackup = async () => {
+      try {
+        setBackingUp(true);
+        const res = await fetch('/api/backup', { method: 'POST' });
+        if (res.ok) {
+          const data = await res.json();
+          if (!cancelled) setLastBackupAt(new Date().toISOString());
+        }
+      } catch { /* noop */ }
+      finally { if (!cancelled) setBackingUp(false); }
+    };
+    // agendamento
+    const id = setInterval(doBackup, 15 * 60 * 1000);
+    return () => { cancelled = true; clearInterval(id); };
+  }, []);
+
+  // Backup antes de sair/fechar a aba
+  useEffect(() => {
+    const handler = (e: BeforeUnloadEvent) => {
+      // dispara backup, mas sem bloquear a saída; navegador pode não aguardar
+      navigator.sendBeacon?.('/api/backup');
+      // Opcional: exibir prompt (desaconselhado em UX)
+      // e.preventDefault(); e.returnValue = '';
+    };
+    window.addEventListener('beforeunload', handler);
+    return () => window.removeEventListener('beforeunload', handler);
+  }, []);
 
   // Valida sincronização completa: compara chaves únicas (os|sku|data|motivo) entre Excel e Banco
   useEffect(() => {
@@ -189,6 +222,29 @@ export default function Dashboard() {
               >
                 <Plus className="h-4 w-4" />
                 <span>Novo</span>
+              </button>
+
+              <button
+                onClick={async () => {
+                  try {
+                    setBackingUp(true);
+                    const res = await fetch('/api/backup', { method: 'POST' });
+                    if (!res.ok) throw new Error('Falha no backup');
+                    const data = await res.json();
+                    setLastBackupAt(new Date().toISOString());
+                  } catch (e) {
+                    console.error(e);
+                    alert('Não foi possível criar backup agora.');
+                  } finally {
+                    setBackingUp(false);
+                  }
+                }}
+                className={`inline-flex items-center gap-2 h-10 px-4 rounded-xl border shadow-sm text-sm ${backingUp ? 'bg-gray-100 border-gray-200 text-gray-500' : 'bg-white/80 border-gray-200 text-gray-700 hover:bg-gray-50'}`}
+                title={lastBackupAt ? `Último backup: ${new Date(lastBackupAt).toLocaleString()}` : 'Criar backup agora'}
+                disabled={backingUp}
+              >
+                <HardDrive className="h-4 w-4" />
+                <span>{backingUp ? 'Fazendo backup...' : 'Backup'}</span>
               </button>
 
               <Link

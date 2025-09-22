@@ -1,4 +1,4 @@
-// Dados processados do Excel - 2025-09-05T14:44:35.503Z
+// Dados processados do Excel - 2025-09-22T18:54:47.527Z
 export interface Reagendamento { id: string; os: string; sku: string; produto: string; tecnico: string; data: string; teveReagendamento: boolean; motivo: string; codigoPeca: string; tipo: string; nomePeca: string; }
 
 export const reagendamentos: Reagendamento[] = [
