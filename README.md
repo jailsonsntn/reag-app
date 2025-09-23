@@ -1,27 +1,27 @@
-## Backup e Restauração
+## Backup, Restauração e Exportação
 
-Este projeto inclui um mecanismo de backup para proteger os dados dos reagendamentos e uma função de restauração para reverter o estado do banco quando necessário.
+Este projeto inclui mecanismos de backup/restauração do banco e exportação de dados para Excel, com integração no Dashboard e APIs dedicadas.
 
-- Botão Backup: disponível no topo do Dashboard. Ao clicar, é criado um backup do banco (SQLite) e um export JSON.
-- Auto-backup: enquanto a página estiver aberta, um backup é realizado a cada 15 minutos.
-- Ao fechar a aba/janela: é disparado um backup final automaticamente (best-effort via sendBeacon).
+- Botão Backup (Dashboard → Configurações → "Fazer backup agora"): cria backup do banco (SQLite) e export JSON.
+- Auto-backup: executado a cada 15 min enquanto a página está aberta.
+- Backup ao fechar: é enviado um backup final (best-effort via sendBeacon).
+- Exportar para Excel: botão no menu Configurações gera um `.xlsx` com os reagendamentos atuais.
 
 Arquivos gerados:
 - Banco: `prisma/backups/reag.<timestamp>.db`
 - Export JSON: `src/data/backups/reagendamentos.<timestamp>.json`
 
-Retenção: os backups são rotacionados automaticamente mantendo os 10 mais recentes.
+Retenção: rotação automática mantendo os 10 mais recentes.
 
 Restauração:
-- Pela UI: Configurações → Ver backups → botão "Restaurar" ao lado de cada arquivo
-	- Banco (.db): substitui o arquivo `prisma/data/reag.db` pelo backup selecionado (restauração instantânea)
-	- Export JSON: limpa a tabela e reimporta todos os itens (mantém id/createdAt quando presentes)
-- Pela API: `POST /api/backup/restore` com body `{ "type": "db" | "json", "file": "<nome-do-arquivo>" }`
+- UI: Configurações → Ver backups → "Restaurar" ao lado de cada arquivo.
+  - Banco (.db): troca o arquivo em uso (resolve o caminho real pelo `DATABASE_URL`), restauração instantânea.
+  - Export JSON: limpa a tabela e reimporta em lote (preserva id/createdAt quando presentes).
+- API: `POST /api/backup/restore` com `{ "type": "db" | "json", "file": "<nome-do-arquivo>" }`.
 
-Observações:
-- Antes de restaurar, é feito automaticamente um backup do estado atual do banco em `prisma/backups/reag.<timestamp>.db`.
-- Restauração de `.db` é ideal para voltar exatamente a um ponto no tempo.
-- Restauração via JSON reimporta registros de forma limpa.
+Metadados para escolher o backup certo:
+- JSON: `GET /api/backup/meta` retorna o total de itens por arquivo JSON.
+- DB: `GET /api/backup/inspect?type=db&file=<nome>` retorna total e faixa de datas (min/max) para cada `.db` sem precisar restaurar.
 
 <div align="center">
 
@@ -53,7 +53,10 @@ Principais objetivos:
 - Importação de Excel (.xlsx/.xls) com conversão automática de datas (dd/mm/yyyy, Date e serial do Excel) para ISO (YYYY-MM-DD).
 - Normalização de datas existentes no banco e deduplicação por chave composta (OS, SKU, data, motivo).
 - Indicadores de total global e validação de sincronização entre planilha e banco.
-- Script Windows “StartServidor.cmd” para rodar tudo com duplo clique (instala, sincroniza, compila, inicia e abre o navegador).
+- Exportar para Excel (.xlsx) direto da UI (Configurações → Exportar para Excel) ou pela rota `GET /api/export/excel`.
+- Backup e restauração completos com listagem e download na UI (inclui metadados: total/min/max).
+- Start rápido no Windows com `StartRapido.cmd` (desenvolvimento, sem tarefas pesadas).
+- Instalador para Windows (`Install.cmd`) que configura dependências, banco e cria atalhos na Área de Trabalho.
 
 ## 🧱 Arquitetura & Stack
 
@@ -66,7 +69,12 @@ Principais objetivos:
 
 ## 📁 Estrutura de Diretórios (resumo)
 
-- `src/app` — Páginas (App Router) e APIs (`/api/reagendamentos`, `/api/reagendamentos/[id]`, `/api/seed`, `/api/maintenance/normalize-dates`).
+- `src/app` — Páginas (App Router) e APIs (CRUD, backup/restore/meta/inspect, export):
+	- `/api/reagendamentos`, `/api/reagendamentos/[id]`
+	- `/api/seed`, `/api/maintenance/normalize-dates`
+	- `/api/backup` (POST), `/api/backup/list` (GET), `/api/backup/download` (GET)
+	- `/api/backup/restore` (POST), `/api/backup/meta` (GET), `/api/backup/inspect` (GET)
+	- `/api/export/excel` (GET)
 - `src/components` — Tabela, Dashboard, Dialogs (Add/Edit/View), filtros e cartões de estatística.
 - `src/utils` — Processamento auxiliar (datas/Excel).
 - `scripts` — Ferramentas (processar Excel, saneamento legado, rotação de backups).
@@ -74,17 +82,27 @@ Principais objetivos:
 
 ## 🚀 Como rodar
 
-### Opção A — Windows (duplo clique)
+### Opção A — Windows (Instalador + atalhos)
 
-1) Abra `StartServidor.cmd`.
-2) O script vai instalar dependências (se necessário), gerar Prisma, sincronizar o banco, processar o Excel se existir, compilar e iniciar o servidor.
-3) O navegador abrirá automaticamente em `http://localhost:3000`.
+1) Execute `Install.cmd` (cria atalhos na Área de Trabalho e prepara o ambiente).
+2) Use os atalhos:
+	 - "Reag App - Start Rapido" (desenvolvimento rápido).
+	 - "Reag App - Start (Producao)" (faz build e inicia em produção).
 
-Observações:
-- O script aceita `ReagendamentoForm2025.xlsx` ou `ReagendamentoForm2025.xls` na raiz do projeto.
-- O banco local fica em `data/reag.db` (configurado por `DATABASE_URL=file:./data/reag.db`).
+### Opção B — Start rápido (Windows)
 
-### Opção B — Desenvolvimento
+- Dê duplo clique em `StartRapido.cmd`.
+- Ele libera a porta 3000, sobe `npm run dev -p 3000` e abre o navegador quando o servidor responder.
+
+### Opção C — Start com flags (Windows)
+
+- `StartServidor.cmd` sem flags: inicia em dev, janela permanece aberta.
+- Flags disponíveis:
+	- `--db`: roda `prisma generate` + `prisma db push`.
+	- `--excel`: processa a planilha (se existir).
+	- `--build`: limpa e roda `npm run build`, iniciando em produção.
+
+### Opção D — Desenvolvimento manual
 
 1) Configure a variável `DATABASE_URL` apontando para `file:./data/reag.db`.
 2) Execute Prisma (`generate` e `db push`).
@@ -104,13 +122,22 @@ Observações:
 - `DELETE /api/reagendamentos/[id]` — remove por id.
 - `POST /api/seed` — importa em lote os dados processados do Excel (com deduplicação em memória).
 - `POST /api/maintenance/normalize-dates` — normaliza datas e resolve duplicidades.
+- `POST /api/backup` — cria backup (DB + JSON) com rotação.
+- `GET /api/backup/list` — lista arquivos de backup disponíveis.
+- `GET /api/backup/download?type=db|json&file=...` — baixa o arquivo.
+- `POST /api/backup/restore` — restaura (DB/JSON) com backup prévio.
+- `GET /api/backup/meta` — totais por JSON.
+- `GET /api/backup/inspect?type=db&file=...` — total, min e max de um `.db` sem restaurar.
+- `GET /api/export/excel` — exporta um `.xlsx` com os reagendamentos.
 
 ## ✅ Boas práticas implementadas
 
 - Ordenação consistente (mais recentes primeiro) e navegação de primeira/última página.
 - Validação e normalização de entradas (Zod e utilidades de data).
 - Tratamento do serial de data do Excel e de formatos brasileiros.
-- Alta legibilidade (contraste) com variantes para dark mode.
+- Tema claro unificado (dark mode removido) e alta legibilidade.
+- Backup respeitando o caminho real do DB via `DATABASE_URL` (relativo ou absoluto).
+- Restauração segura com backup prévio automático.
 
 ## 👤 Autor
 
