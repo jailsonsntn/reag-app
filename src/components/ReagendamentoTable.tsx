@@ -71,7 +71,7 @@ export default function ReagendamentoTable({ data, onEdit, onDelete, onView, tot
   );
 
   return (
-    <div className="bg-white/90 backdrop-blur rounded-2xl border border-gray-200/60 shadow-sm overflow-hidden">
+  <div className="bg-white rounded-2xl border border-gray-200/60 shadow-sm overflow-hidden">
     <div className="px-5 py-4">
         <h3 className="text-lg leading-6 font-semibold text-gray-900">
       Reagendamentos ({typeof totalCount === 'number' ? totalCount : data.length})
@@ -83,7 +83,7 @@ export default function ReagendamentoTable({ data, onEdit, onDelete, onView, tot
       
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50/80">
+          <thead className="bg-gray-50">
             <tr>
               <SortableHeader sortKey="os">OS</SortableHeader>
               <SortableHeader sortKey="sku">SKU</SortableHeader>
@@ -101,7 +101,7 @@ export default function ReagendamentoTable({ data, onEdit, onDelete, onView, tot
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
             {sortedData.map((item) => (
-              <tr key={item.id} className="hover:bg-gray-50/80">
+              <tr key={item.id} className="hover:bg-gray-50">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                   {item.os}
                 </td>

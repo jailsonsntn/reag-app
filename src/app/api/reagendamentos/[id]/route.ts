@@ -42,7 +42,7 @@ export async function PUT(
         teveReagendamento: !!b.teveReagendamento,
         motivo: b.motivo,
         codigoPeca: b.codigoPeca && b.codigoPeca.trim() !== '' ? b.codigoPeca : null,
-        tipo: b.tipo && b.tipo.trim() !== '' ? b.tipo : 'FUNCIONAL',
+  tipo: b.tipo === ' ' ? '' : (b.tipo && b.tipo.trim() !== '' ? b.tipo : 'FUNCIONAL'),
         nomePeca: b.nomePeca && b.nomePeca.trim() !== '' ? b.nomePeca : null,
       },
     });

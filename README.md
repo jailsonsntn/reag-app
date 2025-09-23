@@ -1,6 +1,6 @@
 ## Backup e Restauração
 
-Este projeto inclui um mecanismo de backup para proteger os dados dos reagendamentos.
+Este projeto inclui um mecanismo de backup para proteger os dados dos reagendamentos e uma função de restauração para reverter o estado do banco quando necessário.
 
 - Botão Backup: disponível no topo do Dashboard. Ao clicar, é criado um backup do banco (SQLite) e um export JSON.
 - Auto-backup: enquanto a página estiver aberta, um backup é realizado a cada 15 minutos.
@@ -12,9 +12,16 @@ Arquivos gerados:
 
 Retenção: os backups são rotacionados automaticamente mantendo os 10 mais recentes.
 
+Restauração:
+- Pela UI: Configurações → Ver backups → botão "Restaurar" ao lado de cada arquivo
+	- Banco (.db): substitui o arquivo `prisma/data/reag.db` pelo backup selecionado (restauração instantânea)
+	- Export JSON: limpa a tabela e reimporta todos os itens (mantém id/createdAt quando presentes)
+- Pela API: `POST /api/backup/restore` com body `{ "type": "db" | "json", "file": "<nome-do-arquivo>" }`
+
 Observações:
-- Em alguns navegadores, o envio no fechamento da aba é best‑effort e pode não aguardar a conclusão do backup em redes lentas.
-- Para executar manualmente via API: `POST /api/backup`.
+- Antes de restaurar, é feito automaticamente um backup do estado atual do banco em `prisma/backups/reag.<timestamp>.db`.
+- Restauração de `.db` é ideal para voltar exatamente a um ponto no tempo.
+- Restauração via JSON reimporta registros de forma limpa.
 
 <div align="center">
 

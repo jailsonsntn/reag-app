@@ -31,6 +31,21 @@ async function rotate(dir: string, prefix: string, keep = 10) {
   } catch {}
 }
 
+function resolveSqlitePath(): string {
+  const root = process.cwd();
+  const url = process.env.DATABASE_URL || '';
+  if (!url.startsWith('file:')) {
+    // fallback para localização padrão do repositório
+    return path.join(root, 'prisma', 'data', 'reag.db');
+  }
+  const p = url.slice('file:'.length);
+  // relativo ao diretório do schema (prisma)
+  if (p.startsWith('./') || p.startsWith('.\\')) {
+    return path.join(root, 'prisma', p.replace(/^\.\//, '').replace(/^\.\\/, ''));
+  }
+  return p; // absoluto
+}
+
 export async function POST() {
   if (isBackingUp) {
     return NextResponse.json({ ok: false, message: 'Backup em andamento. Tente novamente em instantes.' }, { status: 429 });
@@ -38,7 +53,7 @@ export async function POST() {
   isBackingUp = true;
   try {
     const root = process.cwd();
-    const dbSrc = path.join(root, 'prisma', 'data', 'reag.db');
+    const dbSrc = resolveSqlitePath();
     const dbBackupsDir = path.join(root, 'prisma', 'backups');
     const jsonBackupsDir = path.join(root, 'src', 'data', 'backups');
     await ensureDir(dbBackupsDir);

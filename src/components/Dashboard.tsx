@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
-import { Search, Filter, Plus, Calendar, Users, Package, Wrench, BarChart, HardDrive } from 'lucide-react';
+import { Search, Filter, Plus, Calendar, Users, Package, Wrench, BarChart, HardDrive, Settings, Download } from 'lucide-react';
 import Link from 'next/link';
 import { reagendamentos as initialReagendamentos, tecnicos, produtos, pecas, motivos } from '@/data/excelData';
 import { Reagendamento } from '@/types/reagendamento';
@@ -32,6 +32,11 @@ export default function Dashboard() {
   const [validating, setValidating] = useState(false);
   const [backingUp, setBackingUp] = useState(false);
   const [lastBackupAt, setLastBackupAt] = useState<string | null>(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showBackupsModal, setShowBackupsModal] = useState(false);
+  const [backupFiles, setBackupFiles] = useState<{ db: string[]; json: string[] } | null>(null);
+  const [backupJsonMeta, setBackupJsonMeta] = useState<Record<string, { total?: number; stamp?: string }> | null>(null);
+  const [backupDbMeta, setBackupDbMeta] = useState<Record<string, { total?: number; min?: string; max?: string }> | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -180,11 +185,11 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen">
-      <div className="backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white border-b border-white/60 shadow-[0_1px_0_0_rgba(0,0,0,0.03)]">
+      <div className="bg-white border-b border-gray-200 shadow-[0_1px_0_0_rgba(0,0,0,0.03)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 grid place-items-center shadow-sm">
+              <div className="h-9 w-9 rounded-xl bg-blue-600 grid place-items-center shadow-sm">
                 <Wrench className="h-5 w-5 text-white" />
               </div>
               <h1 className="text-xl md:text-2xl font-semibold text-gray-900 tracking-tight">
@@ -198,7 +203,7 @@ export default function Dashboard() {
                 <input
                   type="text"
                   placeholder="Buscar OS, SKU, produto, técnico..."
-                  className="pl-9 pr-3 h-10 w-80 rounded-xl bg-white/70 border border-gray-200 focus-visible:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60 shadow-sm placeholder:text-gray-400"
+                  className="pl-9 pr-3 h-10 w-80 rounded-xl bg-white border border-gray-200 focus-visible:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-400/60 shadow-sm placeholder:text-gray-400"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -208,8 +213,8 @@ export default function Dashboard() {
                 onClick={() => setShowFilters(!showFilters)}
                 className={`inline-flex items-center gap-2 px-4 h-10 rounded-xl border shadow-sm text-sm ${
                   showFilters
-                    ? 'bg-blue-50/80 border-blue-200 text-blue-700'
-                    : 'bg-white/80 border-gray-200 text-gray-700 hover:bg-gray-50'
+                    ? 'bg-blue-50 border-blue-200 text-blue-700'
+                    : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'
                 }`}
               >
                 <Filter className="h-4 w-4" />
@@ -218,38 +223,95 @@ export default function Dashboard() {
 
               <button
                 onClick={() => setShowAddDialog(true)}
-                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-sm hover:from-blue-600/90 hover:to-indigo-600/90"
+                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl text-white bg-blue-600 shadow-sm hover:bg-blue-700"
               >
                 <Plus className="h-4 w-4" />
                 <span>Novo</span>
               </button>
 
-              <button
-                onClick={async () => {
-                  try {
-                    setBackingUp(true);
-                    const res = await fetch('/api/backup', { method: 'POST' });
-                    if (!res.ok) throw new Error('Falha no backup');
-                    const data = await res.json();
-                    setLastBackupAt(new Date().toISOString());
-                  } catch (e) {
-                    console.error(e);
-                    alert('Não foi possível criar backup agora.');
-                  } finally {
-                    setBackingUp(false);
-                  }
-                }}
-                className={`inline-flex items-center gap-2 h-10 px-4 rounded-xl border shadow-sm text-sm ${backingUp ? 'bg-gray-100 border-gray-200 text-gray-500' : 'bg-white/80 border-gray-200 text-gray-700 hover:bg-gray-50'}`}
-                title={lastBackupAt ? `Último backup: ${new Date(lastBackupAt).toLocaleString()}` : 'Criar backup agora'}
-                disabled={backingUp}
-              >
-                <HardDrive className="h-4 w-4" />
-                <span>{backingUp ? 'Fazendo backup...' : 'Backup'}</span>
-              </button>
+              <div className="relative">
+                <button
+                  onClick={() => setShowSettings((s) => !s)}
+                  className={`inline-flex items-center gap-2 h-10 px-4 rounded-xl border shadow-sm text-sm ${showSettings ? 'bg-blue-50 border-blue-200 text-blue-700' : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'}`}
+                  title="Configurações"
+                >
+                  <Settings className="h-4 w-4" />
+                  <span>Configurações</span>
+                </button>
+                {showSettings && (
+                  <div className="absolute right-0 mt-2 w-64 rounded-xl border border-gray-200 bg-white shadow-lg z-50">
+                    <button
+                      className="w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50"
+                      onClick={async () => {
+                        try {
+                          setBackingUp(true);
+                          const res = await fetch('/api/backup', { method: 'POST' });
+                          if (!res.ok) throw new Error('Falha no backup');
+                          setLastBackupAt(new Date().toISOString());
+                        } catch (e) {
+                          console.error(e);
+                          alert('Não foi possível criar backup agora.');
+                        } finally {
+                          setBackingUp(false);
+                          setShowSettings(false);
+                        }
+                      }}
+                      disabled={backingUp}
+                    >
+                      <HardDrive className="h-4 w-4" />
+                      <span>{backingUp ? 'Fazendo backup...' : 'Fazer backup agora'}</span>
+                    </button>
+                    <button
+                      className="w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50"
+                      onClick={async () => {
+                        try {
+                          const res = await fetch('/api/backup/list');
+                          if (!res.ok) throw new Error('Falha ao listar backups');
+                          const data = (await res.json()) as { db: string[]; json: string[] };
+                          setBackupFiles(data);
+                          // carrega metadados (totais) dos backups JSON
+                          try {
+                            const metaRes = await fetch('/api/backup/meta');
+                            if (metaRes.ok) {
+                              const metaJson = await metaRes.json();
+                              setBackupJsonMeta(metaJson.meta || null);
+                            }
+                          } catch {}
+                          // inspeciona DBs em paralelo (rápido, leitura direta)
+                          try {
+                            const metaEntries: Record<string, { total?: number; min?: string; max?: string }> = {};
+                            await Promise.all(
+                              data.db.map(async (f) => {
+                                try {
+                                  const r = await fetch(`/api/backup/inspect?type=db&file=${encodeURIComponent(f)}`);
+                                  if (r.ok) {
+                                    const js = await r.json();
+                                    metaEntries[f] = { total: js.total, min: js.min, max: js.max };
+                                  }
+                                } catch {}
+                              })
+                            );
+                            setBackupDbMeta(metaEntries);
+                          } catch {}
+                          setShowBackupsModal(true);
+                        } catch (e) {
+                          console.error(e);
+                          alert('Não foi possível listar backups.');
+                        } finally {
+                          setShowSettings(false);
+                        }
+                      }}
+                    >
+                      <Download className="h-4 w-4" />
+                      <span>Ver backups</span>
+                    </button>
+                  </div>
+                )}
+              </div>
 
               <Link
                 href="/analise"
-                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl border bg-white/80 border-gray-200 text-gray-700 hover:bg-gray-50 shadow-sm"
+                className="inline-flex items-center gap-2 h-10 px-4 rounded-xl border bg-white border-gray-200 text-gray-700 hover:bg-gray-50 shadow-sm"
               >
                 <BarChart className="h-4 w-4" />
                 <span>Análise</span>
@@ -439,6 +501,112 @@ export default function Dashboard() {
           onClose={() => setViewItem(null)}
           item={viewItem}
         />
+      )}
+
+      {/* Modal de Backups */}
+      {showBackupsModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/30" onClick={() => setShowBackupsModal(false)} />
+          <div className="relative bg-white rounded-xl shadow-lg w-full max-w-2xl p-4">
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-lg font-semibold">Backups disponíveis</h2>
+              <button className="text-sm text-gray-500 hover:text-gray-700" onClick={() => setShowBackupsModal(false)}>Fechar</button>
+            </div>
+            {!backupFiles ? (
+              <div className="text-gray-500">Carregando...</div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h3 className="font-medium mb-2">Banco (.db)</h3>
+                  <ul className="space-y-1 max-h-64 overflow-auto pr-2">
+                    {backupFiles.db.length === 0 && <li className="text-sm text-gray-500">Nenhum backup de banco</li>}
+                    {backupFiles.db.map((f) => (
+                      <li key={f} className="flex items-center justify-between gap-2 text-sm">
+                        <span className="truncate" title={f}>{f}{backupDbMeta?.[f]?.total != null ? ` — total: ${backupDbMeta?.[f]?.total} — faixa: ${backupDbMeta?.[f]?.min || '-'} a ${backupDbMeta?.[f]?.max || '-'}` : ''}</span>
+                                <div className="flex items-center gap-2">
+                                  <a className="px-2 py-1 rounded border text-blue-700 border-blue-200 hover:bg-blue-50"
+                                     href={`/api/backup/download?type=db&file=${encodeURIComponent(f)}`}
+                                     download
+                                  >Baixar</a>
+                                  <button
+                                    className="px-2 py-1 rounded border text-red-700 border-red-200 hover:bg-red-50"
+                                    onClick={async () => {
+                                      const ok = window.confirm(`Restaurar banco a partir de ${f}? Isso substituirá o arquivo atual.`);
+                                      if (!ok) return;
+                                      try {
+                                        const res = await fetch('/api/backup/restore', {
+                                          method: 'POST',
+                                          headers: { 'Content-Type': 'application/json' },
+                                          body: JSON.stringify({ type: 'db', file: f })
+                                        });
+                                        const data = await res.json();
+                                        if (!res.ok || !data?.ok) throw new Error(data?.message || 'Falha na restauração');
+                                        alert(`Restauração concluída. Total de registros: ${data.total}`);
+                                        // Recarregar dados da tabela
+                                        setShowBackupsModal(false);
+                                        setPage(0);
+                                        const again = await fetch(`/api/reagendamentos?take=${pageSize}&page=0&meta=1`, { cache: 'no-store' });
+                                        const payload = await again.json();
+                                        setReagendamentosState(payload.items ?? []);
+                                        setTotal(payload.total ?? 0);
+                                      } catch (e: any) {
+                                        alert(e?.message || 'Não foi possível restaurar.');
+                                      }
+                                    }}
+                                  >Restaurar</button>
+                                </div>
+                              </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="font-medium mb-2">Export JSON</h3>
+                  <ul className="space-y-1 max-h-64 overflow-auto pr-2">
+                    {backupFiles.json.length === 0 && <li className="text-sm text-gray-500">Nenhum backup JSON</li>}
+                    {backupFiles.json.map((f) => (
+                      <li key={f} className="flex items-center justify-between gap-2 text-sm">
+                        <span className="truncate" title={f}>{f}{backupJsonMeta?.[f]?.total != null ? ` — total: ${backupJsonMeta?.[f]?.total}` : ''}</span>
+                                <div className="flex items-center gap-2">
+                                  <a className="px-2 py-1 rounded border text-blue-700 border-blue-200 hover:bg-blue-50"
+                                     href={`/api/backup/download?type=json&file=${encodeURIComponent(f)}`}
+                                     download
+                                  >Baixar</a>
+                                  <button
+                                    className="px-2 py-1 rounded border text-red-700 border-red-200 hover:bg-red-50"
+                                    onClick={async () => {
+                                      const ok = window.confirm(`Restaurar registros a partir de ${f}? Isso substituirá os dados atuais.`);
+                                      if (!ok) return;
+                                      try {
+                                        const res = await fetch('/api/backup/restore', {
+                                          method: 'POST',
+                                          headers: { 'Content-Type': 'application/json' },
+                                          body: JSON.stringify({ type: 'json', file: f })
+                                        });
+                                        const data = await res.json();
+                                        if (!res.ok || !data?.ok) throw new Error(data?.message || 'Falha na restauração');
+                                        alert(`Restauração concluída. Inseridos: ${data.inserted}. Total atual: ${data.total}`);
+                                        // Recarregar dados da tabela
+                                        setShowBackupsModal(false);
+                                        setPage(0);
+                                        const again = await fetch(`/api/reagendamentos?take=${pageSize}&page=0&meta=1`, { cache: 'no-store' });
+                                        const payload = await again.json();
+                                        setReagendamentosState(payload.items ?? []);
+                                        setTotal(payload.total ?? 0);
+                                      } catch (e: any) {
+                                        alert(e?.message || 'Não foi possível restaurar.');
+                                      }
+                                    }}
+                                  >Restaurar</button>
+                                </div>
+                              </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+            <div className="mt-4 text-xs text-gray-500">Dica: use o download do .db para abrir no DB Browser for SQLite; o JSON pode ser lido diretamente no editor.</div>
+          </div>
+        </div>
       )}
   </div>
   );
