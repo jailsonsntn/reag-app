@@ -305,6 +305,14 @@ export default function Dashboard() {
                       <Download className="h-4 w-4" />
                       <span>Ver backups</span>
                     </button>
+                    <a
+                      className="w-full flex items-center gap-2 px-4 py-2 text-sm hover:bg-gray-50"
+                      href="/api/export/excel"
+                      onClick={() => setShowSettings(false)}
+                    >
+                      <Download className="h-4 w-4" />
+                      <span>Exportar para Excel</span>
+                    </a>
                   </div>
                 )}
               </div>
