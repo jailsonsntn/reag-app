@@ -63,7 +63,7 @@ Principais objetivos:
 - Frontend: Next.js 15 (App Router) + React 19 + TypeScript.
 - Estilo/UI: Tailwind CSS v4, Radix UI, Lucide React, TanStack Table.
 - Backend: API Routes do Next.js.
-- Banco: SQLite com Prisma 6.x.
+- Banco: Supabase PostgreSQL com Prisma 6.x.
 - Validação: Zod.
 - Datas & Planilha: date-fns e xlsx.
 
@@ -119,7 +119,7 @@ git push origin master
 - `src/components` — Tabela, Dashboard, Dialogs (Add/Edit/View), filtros e cartões de estatística.
 - `src/utils` — Processamento auxiliar (datas/Excel).
 - `scripts` — Ferramentas (processar Excel, saneamento legado, rotação de backups).
-- `prisma` — `schema.prisma` e base SQLite (via `DATABASE_URL`).
+- `prisma` — `schema.prisma` e conexão PostgreSQL/Supabase (via `DATABASE_URL`).
 
 ## 🏷️ Release v0.2.0
 
