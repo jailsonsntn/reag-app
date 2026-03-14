@@ -69,6 +69,47 @@ Principais objetivos:
 
 ## 📁 Estrutura de Diretórios (resumo)
 
+## GitHub e Deploy (Supabase + Vercel)
+
+### 1) Variaveis de ambiente
+
+Crie um arquivo `.env.example` (versionado) com este modelo:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://<project-ref>.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_<sua-chave-publica>
+
+DATABASE_URL=postgresql://postgres.<project-ref>:<DB_PASSWORD>@aws-0-<region>.pooler.supabase.com:6543/postgres?pgbouncer=true
+DIRECT_URL=postgresql://postgres.<project-ref>:<DB_PASSWORD>@aws-0-<region>.pooler.supabase.com:6543/postgres
+```
+
+Notas:
+- Caracteres especiais na senha (como `@`) devem ser codificados em URL (`@` -> `%40`).
+- `DATABASE_URL` e `DIRECT_URL` usam pooler na porta `6543` para melhor compatibilidade em ambientes serverless.
+
+### 2) Subir para GitHub
+
+```bash
+git add .
+git commit -m "chore: configurar Supabase e preparar deploy no Vercel"
+git push origin master
+```
+
+### 3) Deploy no Vercel
+
+1. Importe o repositorio no Vercel.
+2. Em `Settings > Environment Variables`, configure:
+	- `NEXT_PUBLIC_SUPABASE_URL`
+	- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+	- `DATABASE_URL`
+	- `DIRECT_URL`
+3. Execute o primeiro deploy.
+
+### 4) Banco de dados
+
+- Se a tabela ainda nao existir, execute o SQL de schema no Supabase SQL Editor.
+- Para importar dados em lote, utilize o arquivo `scripts/seed-supabase.sql` no SQL Editor.
+
 - `src/app` — Páginas (App Router) e APIs (CRUD, backup/restore/meta/inspect, export):
 	- `/api/reagendamentos`, `/api/reagendamentos/[id]`
 	- `/api/seed`, `/api/maintenance/normalize-dates`
@@ -79,6 +120,8 @@ Principais objetivos:
 - `src/utils` — Processamento auxiliar (datas/Excel).
 - `scripts` — Ferramentas (processar Excel, saneamento legado, rotação de backups).
 - `prisma` — `schema.prisma` e base SQLite (via `DATABASE_URL`).
+
+## 🏷️ Release v0.2.0
 
 ## 🚀 Como rodar
 
